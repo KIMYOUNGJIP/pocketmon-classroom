@@ -1088,8 +1088,16 @@ html_template = """<!DOCTYPE html>
       lastDate: new Date().toISOString().split('T')[0],
       currentSession: null,
       // Cloud sync config (Firebase)
-      classId: 'classroom_5_default',
-      firebaseConfig: null,
+      classId: 'classroom_pocketmon_main',
+      firebaseConfig: {
+        apiKey: "AIzaSyCTkOPaxO2p-S92jvrtn7lzaddAkUF9ecQ",
+        authDomain: "ocketmon-classroom.firebaseapp.com",
+        projectId: "ocketmon-classroom",
+        storageBucket: "ocketmon-classroom.firebasestorage.app",
+        messagingSenderId: "149388375699",
+        appId: "1:149388375699:web:b0af98c418e4e77f137f66",
+        measurementId: "G-BJYF4H4T7T"
+      },
     };
 
     /* Cloud Sync Engine (Firebase Realtime Firestore) */
@@ -1336,8 +1344,11 @@ html_template = """<!DOCTYPE html>
       }
 
       // Initialize Cloud Sync if config exists
-      if (!appState.firebaseConfig && window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey) {
+      if ((!appState.firebaseConfig || !appState.firebaseConfig.apiKey) && window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey) {
         appState.firebaseConfig = window.FIREBASE_CONFIG;
+      }
+      if (!appState.classId || appState.classId === 'classroom_5_default') {
+        appState.classId = 'classroom_pocketmon_main';
       }
       if (appState.firebaseConfig) {
         initCloudSync();
