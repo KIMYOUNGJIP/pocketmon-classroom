@@ -5,22 +5,22 @@ with open('/Users/macbook/Documents/antigravity/pocketmon/pokemon_data.json', 'r
 
 # Initial students with default passwords and daily checkin date tracking
 initial_students = [
-    {"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
+    {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "lastRaidDate": "", "collected": {}},
 ]
 
 html_template = """<!DOCTYPE html>
@@ -316,6 +316,12 @@ html_template = """<!DOCTYPE html>
             <span>발표자 추첨</span>
           </button>
 
+          <button onclick="openRaidManageModal()" class="flex items-center gap-1.5 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 active:scale-95 text-white font-jua px-3 py-2 rounded-xl shadow-md transition text-xs sm:text-sm" title="선생님몬 대결 설정 및 기여도 확인">
+            <span>👾</span>
+            <span>협동 미션</span>
+            <span id="headerRaidHpBadge" class="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-slate-900/60 text-emerald-300 font-bold">2,000 HP</span>
+          </button>
+
           <button id="soundToggleBtn" onclick="toggleSound()" class="bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-200 border border-slate-700 p-2 rounded-xl transition shadow text-base" title="소리 켜기/끄기">
             🔊
           </button>
@@ -360,6 +366,60 @@ html_template = """<!DOCTYPE html>
           <span class="text-emerald-400 font-bold">도감: <span id="statTotalCollected" class="text-white">0/152종</span></span>
           <span class="text-slate-600">|</span>
           <span class="text-rose-400 font-bold">미개봉 볼: <span id="statPendingBallsTotal" class="text-white font-bold">0개</span></span>
+        </div>
+      </div>
+
+      <!-- Teacher Raid Mission Status Banner -->
+      <div class="bg-gradient-to-r from-teal-950/80 via-slate-900 to-emerald-950/80 border border-teal-500/50 p-4 sm:p-5 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 rounded-2xl bg-teal-900/60 border-2 border-teal-400/50 p-1 flex items-center justify-center flex-shrink-0 shadow-inner relative overflow-hidden">
+            <svg class="w-full h-full object-contain filter drop-shadow" viewBox="0 0 100 100">
+              <ellipse cx="50" cy="85" rx="34" ry="8" fill="rgba(0,0,0,0.12)" />
+              <circle cx="50" cy="52" r="32" fill="#10b981" />
+              <path d="M30 26 Q34 13 42 22 Q35 28 30 26 Z" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" />
+              <path d="M70 26 Q66 13 58 22 Q65 28 70 26 Z" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" />
+              <path d="M33 32 Q50 16 67 32 Q60 22 50 23 Q40 22 33 32 Z" fill="#1e293b" />
+              <path d="M38 52 Q50 64 62 52 Q60 76 50 78 Q40 76 38 52 Z" fill="#fef08a" />
+              <circle cx="41" cy="46" r="6.5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+              <circle cx="59" cy="46" r="6.5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+              <circle cx="42" cy="46" r="2.8" fill="#0f172a" />
+              <circle cx="60" cy="46" r="2.8" fill="#0f172a" />
+              <line x1="47.5" y1="46" x2="52.5" y2="46" stroke="#0f172a" stroke-width="2" />
+              <path d="M46 56 Q50 61 54 56" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round" />
+              <path d="M44 64 L48 71 L52 71 L56 64" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" />
+              <rect x="46" y="70" width="8" height="11" rx="1.5" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.2" />
+              <line x1="72" y1="52" x2="86" y2="28" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" />
+              <polygon points="86,22 88,27 93,27 89,30 91,35 86,32 81,35 83,30 79,27 84,27" fill="#f59e0b" stroke="#b45309" stroke-width="0.8" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs px-2.5 py-0.5 rounded-full bg-teal-500/20 text-teal-300 font-jua border border-teal-400/40">우리 반 협동 미션</span>
+              <h3 id="teacherRaidMonsterName" class="text-lg sm:text-xl font-jua text-white">선생님몬과 대결하기</h3>
+              <span id="teacherRaidClearStatus" class="hidden text-xs px-2.5 py-0.5 rounded-full font-bold bg-amber-400 text-slate-950 font-jua animate-bounce">🏆 격파 완료!</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">
+              🎯 목표 보상: <strong id="teacherRaidRewardGoal" class="text-amber-300 font-jua text-sm">학급 요리 시간</strong>
+              <span class="text-slate-400 ml-1.5 hidden sm:inline">(레벨 4 이상 대표 포켓몬으로 학생 도전)</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="flex-1 w-full max-w-md">
+          <div class="flex justify-between text-xs font-bold font-jua text-slate-200 mb-1.5">
+            <span>선생님몬 남은 체력</span>
+            <span><span id="teacherRaidHpCurrent">2,000</span> / <span id="teacherRaidHpMax">2,000</span> HP</span>
+          </div>
+          <div class="w-full h-4 bg-slate-950 rounded-full overflow-hidden border border-slate-700 p-0.5 shadow-inner">
+            <div id="teacherRaidHpBar" class="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-500" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 flex-shrink-0">
+          <button onclick="openRaidManageModal()" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-95 text-teal-300 hover:text-white border border-teal-500/50 text-xs sm:text-sm font-jua transition shadow flex items-center gap-1.5 cursor-pointer">
+            <span>⚙️</span>
+            <span>미션/보상 관리</span>
+          </button>
         </div>
       </div>
 
@@ -547,8 +607,106 @@ html_template = """<!DOCTYPE html>
             <span>🔍</span>
             <span>전체 도감 열람하기</span>
           </button>
+      <!-- C. OUR CLASS COOPERATION RAID MISSION (선생님몬과 대결하기) -->
+      <section class="mt-4 flex flex-col items-center">
+        <div class="text-center mb-4">
+          <h2 class="text-2xl sm:text-3xl font-jua text-teal-300 tracking-tight drop-shadow">우리 반 협동 미션</h2>
         </div>
-      </div>
+
+        <!-- Main Raid White Card matching user screenshot -->
+        <div class="w-full max-w-lg bg-[#f8fafc] text-slate-900 rounded-3xl p-5 sm:p-7 border-2 border-slate-200/90 shadow-2xl flex flex-col gap-4 relative animate-card-pop">
+          <!-- Card Header -->
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-teal-700 font-jua tracking-wide">우리 반 협동 미션</span>
+            <span id="studentRaidClearedBadge" class="hidden text-xs px-2.5 py-0.5 rounded-full font-bold bg-amber-400 text-slate-950 font-jua animate-bounce">
+              🎉 미션 격파 성공!
+            </span>
+          </div>
+
+          <h3 id="studentRaidTitle" class="text-2xl sm:text-3xl font-jua text-slate-900 -mt-2 tracking-tight">
+            선생님몬과 대결하기
+          </h3>
+
+          <!-- Monster & HP Gauge Row -->
+          <div class="flex items-center gap-4 my-1">
+            <!-- Monster Avatar Box -->
+            <div id="studentRaidMonsterBox" class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-amber-50/80 border-2 border-amber-200/80 p-1 flex items-center justify-center flex-shrink-0 shadow-inner relative overflow-hidden transition-transform">
+              <svg class="w-full h-full object-contain filter drop-shadow" viewBox="0 0 100 100">
+                <ellipse cx="50" cy="85" rx="34" ry="8" fill="rgba(0,0,0,0.12)" />
+                <circle cx="50" cy="52" r="32" fill="#10b981" />
+                <path d="M30 26 Q34 13 42 22 Q35 28 30 26 Z" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" />
+                <path d="M70 26 Q66 13 58 22 Q65 28 70 26 Z" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" />
+                <path d="M33 32 Q50 16 67 32 Q60 22 50 23 Q40 22 33 32 Z" fill="#1e293b" />
+                <path d="M38 52 Q50 64 62 52 Q60 76 50 78 Q40 76 38 52 Z" fill="#fef08a" />
+                <circle cx="41" cy="46" r="6.5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+                <circle cx="59" cy="46" r="6.5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+                <circle cx="42" cy="46" r="2.8" fill="#0f172a" />
+                <circle cx="60" cy="46" r="2.8" fill="#0f172a" />
+                <line x1="47.5" y1="46" x2="52.5" y2="46" stroke="#0f172a" stroke-width="2" />
+                <path d="M46 56 Q50 61 54 56" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round" />
+                <path d="M44 64 L48 71 L52 71 L56 64" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" />
+                <rect x="46" y="70" width="8" height="11" rx="1.5" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.2" />
+                <line x1="72" y1="52" x2="86" y2="28" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" />
+                <polygon points="86,22 88,27 93,27 89,30 91,35 86,32 81,35 83,30 79,27 84,27" fill="#f59e0b" stroke="#b45309" stroke-width="0.8" />
+              </svg>
+            </div>
+
+            <!-- Health Bar & Damage Info -->
+            <div class="flex-1 min-w-0">
+              <div class="w-full h-4 bg-slate-200 rounded-full overflow-hidden border border-slate-300 mb-1.5 shadow-inner">
+                <div id="studentRaidHpBar" class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 100%;"></div>
+              </div>
+              <p class="text-sm font-jua text-slate-800">
+                체력 <span id="studentRaidHpCurrent">2,000</span> / <span id="studentRaidHpMax">2,000</span>
+              </p>
+              <p class="text-xs text-slate-500 font-medium mt-0.5">
+                우리 반이 <span id="studentRaidTotalDmg" class="text-rose-600 font-bold">0</span> 데미지를 입혔어요!
+              </p>
+            </div>
+          </div>
+
+          <!-- Attack Action Button -->
+          <div class="mt-1">
+            <button id="studentRaidAttackBtn" onclick="executeRaidAttack()" class="w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-jua text-base sm:text-lg shadow-md transition flex items-center justify-center gap-2 cursor-pointer">
+              <span>⚔️</span>
+              <span id="studentRaidAttackBtnText">선생님몬에게 도전하기!</span>
+            </button>
+            <p id="studentRaidStatusHelp" class="text-xs text-slate-500 text-center font-medium mt-2">
+              레벨 4 이상 대표 포켓몬으로 강력한 일격을 날려보세요!
+            </p>
+          </div>
+
+          <!-- Reward Box (Yellow Card) -->
+          <div class="w-full bg-[#fef9c3] border border-amber-300 rounded-2xl p-3.5 sm:p-4 text-center font-jua shadow-sm">
+            <span class="text-amber-900 text-xs sm:text-sm">학급 보상 · </span>
+            <span id="studentRaidRewardDisplay" class="text-amber-950 font-bold text-sm sm:text-base">학급 요리 시간</span>
+          </div>
+
+          <!-- Accordion: Attack Logs & Contribution -->
+          <div class="w-full border border-slate-200 rounded-2xl overflow-hidden bg-slate-50">
+            <button onclick="toggleRaidLogs()" class="w-full p-3.5 flex items-center justify-between text-left text-xs sm:text-sm font-jua text-slate-800 hover:bg-slate-100 transition cursor-pointer">
+              <span class="flex items-center gap-1.5">
+                <span id="raidLogArrow">▶</span>
+                <span>나의 최근 공격 기록</span>
+              </span>
+              <span id="studentMyDmgTotalBadge" class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 font-bold">
+                내 기여 0 데미지
+              </span>
+            </button>
+            <div id="raidLogBox" class="hidden p-3 border-t border-slate-200 bg-white space-y-2 max-h-48 overflow-y-auto text-xs">
+              <div id="raidLogList" class="space-y-1.5 divide-y divide-slate-100 text-slate-700">
+                <!-- Log items populated by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Inspiring Bottom Subtitle matching user screenshot -->
+        <div class="text-center font-jua text-white/90 text-xl sm:text-2xl mt-6 drop-shadow">
+          혼자가 아니라<br/>
+          <span class="text-teal-300 text-2xl sm:text-3xl">우리 반이 함께!</span>
+        </div>
+      </section>
 
     </main>
 
@@ -714,6 +872,94 @@ html_template = """<!DOCTYPE html>
       <button onclick="closeEvolutionModal()" class="w-full mt-3 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 hover:from-amber-300 hover:to-orange-400 active:scale-95 text-slate-950 font-jua text-base sm:text-lg shadow-xl transition flex items-center justify-center gap-2 cursor-pointer">
         <span>🎉</span>
         <span>멋진 모습 확인하기!</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- B-3. 우리 반 협동 미션 배틀 컷신 모달 -->
+  <div id="raidBattleModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl hidden transition-opacity duration-300">
+    <div class="bg-gradient-to-b from-slate-900 via-teal-950 to-slate-950 border-4 border-teal-400 rounded-3xl w-full max-w-lg p-5 sm:p-7 shadow-[0_0_50px_rgba(20,184,166,0.5)] flex flex-col items-center relative animate-card-pop text-center overflow-hidden">
+      <!-- Background pulse -->
+      <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-teal-400 via-emerald-500 to-transparent animate-pulse"></div>
+
+      <!-- Header Badge -->
+      <div id="battleModalBadge" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-teal-400 to-emerald-400 text-slate-950 font-jua text-sm sm:text-base font-bold shadow-lg mb-3 flex items-center gap-1.5 animate-bounce">
+        ⚔️ 우리 반 협동 미션 배틀! ⚔️
+      </div>
+
+      <h3 id="battleModalTitle" class="text-xl sm:text-2xl font-jua text-white mb-2 tracking-tight">
+        선생님몬에게 일격을 가합니다!
+      </h3>
+
+      <!-- Battle Arena Grid -->
+      <div class="relative w-full py-4 flex items-center justify-between gap-2 sm:gap-4 my-2 px-3 bg-slate-950/60 rounded-2xl border border-teal-500/30">
+        <!-- Student's Attacking Pokemon (Left) -->
+        <div id="battleStudentPokeBox" class="flex flex-col items-center flex-1 transition-transform duration-300">
+          <div id="battleStudentPokeImgBox" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-slate-800/90 border-2 border-amber-400 p-2 flex items-center justify-center relative shadow-lg">
+            <span id="battleCrownIcon" class="hidden absolute -top-4 text-xl filter drop-shadow animate-bounce">👑</span>
+            <img id="battleStudentPokeImg" src="" class="w-full h-full object-contain filter drop-shadow-md" />
+          </div>
+          <span id="battleStudentPokeName" class="text-xs sm:text-sm font-jua text-amber-300 mt-2 font-bold truncate">포켓몬</span>
+          <span id="battleStudentPokeTier" class="text-[10px] px-2 py-0.2 rounded-full font-bold bg-amber-400 text-slate-950 mt-0.5">Lv.4 · 금색</span>
+        </div>
+
+        <!-- Attack VS & Damage Popup Box (Center) -->
+        <div class="flex flex-col items-center justify-center flex-shrink-0 relative w-24">
+          <div id="battleVersusText" class="text-2xl sm:text-3xl font-jua text-teal-400 animate-pulse">
+            VS
+          </div>
+          <!-- Floating Damage Popup -->
+          <div id="battleDamagePopup" class="hidden absolute -top-6 text-base sm:text-lg font-jua font-black text-rose-400 drop-shadow-[0_2px_8px_rgba(244,63,94,0.9)] animate-bounce whitespace-nowrap">
+            💥 -85 HP!
+          </div>
+        </div>
+
+        <!-- Teacher Monster (Right) -->
+        <div id="battleMonsterBox" class="flex flex-col items-center flex-1 transition-transform duration-300">
+          <div id="battleMonsterImgBox" class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-amber-50/90 border-2 border-emerald-400 p-1 flex items-center justify-center relative shadow-lg overflow-hidden">
+            <svg class="w-full h-full object-contain filter drop-shadow" viewBox="0 0 100 100">
+              <ellipse cx="50" cy="85" rx="34" ry="8" fill="rgba(0,0,0,0.12)" />
+              <circle cx="50" cy="52" r="32" fill="#10b981" />
+              <path d="M30 26 Q34 13 42 22 Q35 28 30 26 Z" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" />
+              <path d="M70 26 Q66 13 58 22 Q65 28 70 26 Z" fill="#fbbf24" stroke="#d97706" stroke-width="1.5" />
+              <path d="M33 32 Q50 16 67 32 Q60 22 50 23 Q40 22 33 32 Z" fill="#1e293b" />
+              <path d="M38 52 Q50 64 62 52 Q60 76 50 78 Q40 76 38 52 Z" fill="#fef08a" />
+              <circle cx="41" cy="46" r="6.5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+              <circle cx="59" cy="46" r="6.5" fill="#ffffff" stroke="#0f172a" stroke-width="2" />
+              <circle cx="42" cy="46" r="2.8" fill="#0f172a" />
+              <circle cx="60" cy="46" r="2.8" fill="#0f172a" />
+              <line x1="47.5" y1="46" x2="52.5" y2="46" stroke="#0f172a" stroke-width="2" />
+              <path d="M46 56 Q50 61 54 56" stroke="#0f172a" stroke-width="2" fill="none" stroke-linecap="round" />
+              <path d="M44 64 L48 71 L52 71 L56 64" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" />
+              <rect x="46" y="70" width="8" height="11" rx="1.5" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.2" />
+              <line x1="72" y1="52" x2="86" y2="28" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" />
+              <polygon points="86,22 88,27 93,27 89,30 91,35 86,32 81,35 83,30 79,27 84,27" fill="#f59e0b" stroke="#b45309" stroke-width="0.8" />
+            </svg>
+          </div>
+          <span id="battleMonsterName" class="text-xs sm:text-sm font-jua text-emerald-300 mt-2 font-bold truncate">선생님몬</span>
+          <div class="w-full max-w-[100px] h-2 bg-slate-800 rounded-full overflow-hidden border border-slate-700 mt-1">
+            <div id="battleMonsterHpMiniBar" class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 100%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battle Result Narrative -->
+      <p id="battleNarrative" class="text-xs sm:text-sm text-slate-300 my-2 leading-relaxed min-h-[36px]">
+        공격 준비 중...
+      </p>
+
+      <!-- Clear Reward Box (Appears when HP reaches 0) -->
+      <div id="battleClearBox" class="hidden w-full bg-gradient-to-r from-amber-950/90 to-yellow-950/90 border-2 border-amber-400 rounded-2xl p-3 sm:p-4 my-2 text-center animate-card-pop">
+        <p class="text-xs text-amber-300 font-jua">🏆 우리 반 협동 미션 완전 격파! 🏆</p>
+        <p class="text-sm sm:text-base font-jua text-white font-bold mt-0.5">
+          약속된 학급 보상: <span id="battleClearRewardText" class="text-amber-300 font-bold">학급 요리 시간</span> 달성!
+        </p>
+      </div>
+
+      <!-- Action Button -->
+      <button id="battleCloseBtn" onclick="closeRaidBattleModal()" class="w-full mt-3 py-3.5 rounded-2xl bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 active:scale-95 text-slate-950 font-jua text-base sm:text-lg shadow-xl transition flex items-center justify-center gap-2 cursor-pointer">
+        <span>🎉</span>
+        <span id="battleCloseBtnText">멋진 활약 확인하기!</span>
       </button>
     </div>
   </div>
@@ -1121,6 +1367,93 @@ html_template = """<!DOCTYPE html>
     </div>
   </div>
 
+  <!-- H. OUR CLASS RAID MANAGE MODAL (선생님 전용) -->
+  <div id="raidManageModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden">
+    <div class="bg-[#1e293b] border border-slate-700 rounded-3xl w-full max-w-2xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+      <!-- Modal Header -->
+      <div class="p-5 border-b border-slate-700 flex items-center justify-between bg-slate-800/60">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-xl font-jua border border-teal-500/30">
+            👾
+          </div>
+          <div>
+            <h3 class="text-lg font-jua text-white">우리 반 협동 미션 (선생님몬) 설정 & 관리</h3>
+            <p class="text-xs text-slate-400">선생님몬 체력과 학급 목표 보상을 설정하고 학생들의 기여도를 확인합니다.</p>
+          </div>
+        </div>
+        <button onclick="closeRaidManageModal()" class="w-8 h-8 rounded-full bg-slate-700 hover:bg-slate-600 text-slate-300 flex items-center justify-center transition cursor-pointer">
+          ✕
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-5 flex-1 overflow-y-auto space-y-5 text-sm">
+        <!-- Settings Form -->
+        <div class="bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-slate-700/80 space-y-4">
+          <h4 class="font-jua text-teal-300 flex items-center gap-1.5">
+            <span>⚙️</span> 미션 기본 설정
+          </h4>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div>
+              <label class="block text-slate-400 mb-1">몬스터 이름</label>
+              <input type="text" id="settingRaidMonsterName" value="선생님몬" class="w-full p-2.5 bg-slate-800 border border-slate-600 rounded-xl text-white font-jua focus:border-teal-400 focus:outline-none" />
+            </div>
+
+            <div>
+              <label class="block text-slate-400 mb-1">최대 체력 (Max HP)</label>
+              <input type="number" id="settingRaidMaxHp" value="2000" min="500" max="10000" step="100" class="w-full p-2.5 bg-slate-800 border border-slate-600 rounded-xl text-teal-300 font-bold focus:border-teal-400 focus:outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-slate-400 text-xs mb-1">🎯 격파 시 학급 보상 목표 (학생들이 원하는 활동)</label>
+            <input type="text" id="settingRaidRewardGoal" placeholder="예: 학급 요리 시간 & 파티, 영화 관람 & 팝콘, 자유 보드게임 1교시" value="학급 요리 시간" class="w-full p-2.5 bg-slate-800 border border-amber-400/50 rounded-xl text-amber-200 font-jua text-sm focus:border-amber-400 focus:outline-none" />
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex items-center gap-2 flex-wrap pt-1">
+            <button onclick="saveRaidSettings()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-jua text-xs shadow-md transition active:scale-95 flex items-center gap-1.5 cursor-pointer">
+              <span>💾</span>
+              <span>설정 저장</span>
+            </button>
+            <button onclick="resetRaidHp()" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-600/50 text-xs font-jua transition cursor-pointer" title="체력을 최대치로 100% 채웁니다">
+              <span>🔄</span>
+              <span>체력 완전 회복 (새 시즌 시작)</span>
+            </button>
+            <button onclick="adjustRaidHp(-200)" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-rose-900/50 text-rose-300 border border-slate-700 text-xs font-jua transition cursor-pointer" title="테스트용: 체력 200 차감">
+              -200 HP 테스트
+            </button>
+            <button onclick="adjustRaidHp(200)" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-emerald-900/50 text-emerald-300 border border-slate-700 text-xs font-jua transition cursor-pointer" title="테스트용: 체력 200 회복">
+              +200 HP
+            </button>
+          </div>
+        </div>
+
+        <!-- Student Contribution Ranking Table -->
+        <div class="bg-slate-900/70 p-4 rounded-2xl border border-slate-700/60">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="font-jua text-slate-200 flex items-center gap-1.5">
+              <span>🏆</span> 우리 반 학생별 기여도 랭킹 (누적 데미지 순위)
+            </h4>
+            <span id="raidTotalAttacksCount" class="text-xs text-slate-400 font-mono">총 0회 공격</span>
+          </div>
+
+          <div class="max-h-60 overflow-y-auto border border-slate-700 rounded-xl bg-slate-950/60 divide-y divide-slate-800" id="raidLeaderboardList">
+            <!-- Leaderboard items rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-slate-800/60 border-t border-slate-700 flex justify-end">
+        <button onclick="closeRaidManageModal()" class="px-5 py-2 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-medium text-xs transition cursor-pointer">
+          닫기
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- JAVASCRIPT APPLICATION LOGIC -->
   <script>
     const POKEMON_DATA = __POKEMON_DATA_JSON__;
@@ -1300,6 +1633,39 @@ html_template = """<!DOCTYPE html>
           osc.stop(now + i * 0.09 + 0.15);
         });
       }
+      playAttack() {
+        if (!this.enabled) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(320, now);
+        osc.frequency.exponentialRampToValueAtTime(70, now + 0.18);
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.18);
+      }
+      playCrit() {
+        if (!this.enabled) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        [220, 440, 880].forEach((freq, i) => {
+          const osc = this.ctx.createOscillator();
+          const gain = this.ctx.createGain();
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(freq, now + i * 0.05);
+          gain.gain.setValueAtTime(0.25, now + i * 0.05);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.05 + 0.12);
+          osc.connect(gain);
+          gain.connect(this.ctx.destination);
+          osc.start(now + i * 0.05);
+          osc.stop(now + i * 0.05 + 0.12);
+        });
+      }
     }
     const soundManager = new RetroSoundManager();
 
@@ -1316,6 +1682,14 @@ html_template = """<!DOCTYPE html>
       soundEnabled: true,
       lastDate: new Date().toISOString().split('T')[0],
       currentSession: null,
+      // Our Class Raid Mission (선생님몬과 대결하기)
+      teacherMonster: {
+        name: '선생님몬',
+        maxHp: 2000,
+        currentHp: 2000,
+        reward: '학급 요리 시간 & 파티',
+        logs: []
+      },
       // Cloud sync config (Firebase)
       classId: 'classroom_pocketmon_main',
       firebaseConfig: {
@@ -1391,6 +1765,7 @@ html_template = """<!DOCTYPE html>
         presentHappyBonus: appState.presentHappyBonus || 15,
         ballExchangeCost: appState.ballExchangeCost || 100,
         students: appState.students,
+        teacherMonster: appState.teacherMonster,
         lastDate: appState.lastDate,
         updatedAt: Date.now()
       };
@@ -1418,12 +1793,16 @@ html_template = """<!DOCTYPE html>
       if (Array.isArray(data.students)) {
         appState.students = data.students;
       }
+      if (data.teacherMonster) {
+        appState.teacherMonster = data.teacherMonster;
+      }
 
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
       } catch (e) {}
 
       updateGlobalStats();
+      renderRaidUI();
       if (appState.currentSession) {
         if (appState.currentSession.role === 'teacher') {
           renderStudentGrid();
@@ -1582,15 +1961,31 @@ html_template = """<!DOCTYPE html>
           s.todayCount = 0;
           s.todayLog = null;
           s.trainedToday = false;
+          s.lastRaidDate = '';
         });
         saveState();
       }
 
-      // Ensure every student has todayCount property initialized
+      // Ensure every student has todayCount and lastRaidDate property initialized
       if (appState.students) {
         appState.students.forEach(s => {
           if (typeof s.todayCount !== 'number') s.todayCount = 0;
+          if (typeof s.lastRaidDate !== 'string') s.lastRaidDate = '';
         });
+      }
+
+      // Ensure teacherMonster is present
+      if (!appState.teacherMonster || typeof appState.teacherMonster !== 'object') {
+        appState.teacherMonster = {
+          name: '선생님몬',
+          maxHp: 2000,
+          currentHp: 2000,
+          reward: '학급 요리 시간',
+          logs: []
+        };
+      }
+      if (!Array.isArray(appState.teacherMonster.logs)) {
+        appState.teacherMonster.logs = [];
       }
 
       // Initialize Cloud Sync if config exists
@@ -1610,6 +2005,7 @@ html_template = """<!DOCTYPE html>
       updateSoundUI();
       populateLoginStudentDropdown();
       updateSettingsInputs();
+      renderRaidUI();
 
       if (appState.currentSession) {
         applySession(appState.currentSession);
@@ -2117,6 +2513,7 @@ html_template = """<!DOCTYPE html>
       const percent = Math.round((collectedCount / totalPokemon) * 100);
       document.getElementById('studentViewPokedexStats').textContent = `${collectedCount} / ${totalPokemon}종 (${percent}%)`;
       document.getElementById('studentViewProgressBar').style.width = `${percent}%`;
+      renderRaidUI();
     }
 
     /* Exchange Happy Points for Extra Monster Ball */
@@ -3188,6 +3585,451 @@ html_template = """<!DOCTYPE html>
       renderStudentGrid();
       renderManageStudentList();
       showToast(`${student.name} 학생의 볼이 0개로 리셋되었습니다.`);
+    }
+
+    /* ==================== CLASS COOPERATION RAID (선생님몬 배틀) ==================== */
+    function renderRaidUI() {
+      if (!appState.teacherMonster || typeof appState.teacherMonster !== 'object') {
+        appState.teacherMonster = {
+          name: '선생님몬',
+          maxHp: 2000,
+          currentHp: 2000,
+          reward: '학급 요리 시간',
+          logs: []
+        };
+      }
+      const tm = appState.teacherMonster;
+      const maxHp = tm.maxHp || 2000;
+      const curHp = Math.max(0, Math.min(maxHp, tm.currentHp !== undefined ? tm.currentHp : maxHp));
+      tm.currentHp = curHp;
+      const hpPercent = Math.max(0, Math.min(100, Math.round((curHp / maxHp) * 100)));
+      const totalDamage = Math.max(0, maxHp - curHp);
+      const isCleared = curHp <= 0;
+
+      // 1. Teacher Header Badge
+      const headerHpBadge = document.getElementById('headerRaidHpBadge');
+      if (headerHpBadge) {
+        headerHpBadge.textContent = isCleared ? '🏆 미션 격파!' : `${curHp.toLocaleString()} HP`;
+        headerHpBadge.className = isCleared 
+          ? 'text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-bold animate-bounce'
+          : 'text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-slate-900/60 text-emerald-300 font-bold';
+      }
+
+      // 2. Teacher Dashboard Widget
+      const tMonsterName = document.getElementById('teacherRaidMonsterName');
+      if (tMonsterName) tMonsterName.textContent = `${tm.name || '선생님몬'}과 대결하기`;
+
+      const tClearStatus = document.getElementById('teacherRaidClearStatus');
+      if (tClearStatus) tClearStatus.classList.toggle('hidden', !isCleared);
+
+      const tRewardGoal = document.getElementById('teacherRaidRewardGoal');
+      if (tRewardGoal) tRewardGoal.textContent = tm.reward || '학급 요리 시간';
+
+      const tHpCur = document.getElementById('teacherRaidHpCurrent');
+      if (tHpCur) tHpCur.textContent = curHp.toLocaleString();
+
+      const tHpMax = document.getElementById('teacherRaidHpMax');
+      if (tHpMax) tHpMax.textContent = maxHp.toLocaleString();
+
+      const tHpBar = document.getElementById('teacherRaidHpBar');
+      if (tHpBar) {
+        tHpBar.style.width = `${hpPercent}%`;
+        if (hpPercent <= 25) {
+          tHpBar.className = "h-full bg-gradient-to-r from-rose-600 to-red-500 rounded-full transition-all duration-500";
+        } else if (hpPercent <= 50) {
+          tHpBar.className = "h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full transition-all duration-500";
+        } else {
+          tHpBar.className = "h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-500";
+        }
+      }
+
+      // 3. Student Raid Card UI
+      const sTitle = document.getElementById('studentRaidTitle');
+      if (sTitle) sTitle.textContent = `${tm.name || '선생님몬'}과 대결하기`;
+
+      const sClearedBadge = document.getElementById('studentRaidClearedBadge');
+      if (sClearedBadge) sClearedBadge.classList.toggle('hidden', !isCleared);
+
+      const sHpCur = document.getElementById('studentRaidHpCurrent');
+      if (sHpCur) sHpCur.textContent = curHp.toLocaleString();
+
+      const sHpMax = document.getElementById('studentRaidHpMax');
+      if (sHpMax) sHpMax.textContent = maxHp.toLocaleString();
+
+      const sTotalDmg = document.getElementById('studentRaidTotalDmg');
+      if (sTotalDmg) sTotalDmg.textContent = totalDamage.toLocaleString();
+
+      const sHpBar = document.getElementById('studentRaidHpBar');
+      if (sHpBar) {
+        sHpBar.style.width = `${hpPercent}%`;
+        if (hpPercent <= 25) {
+          sHpBar.className = "h-full bg-rose-500 rounded-full transition-all duration-500";
+        } else if (hpPercent <= 50) {
+          sHpBar.className = "h-full bg-amber-500 rounded-full transition-all duration-500";
+        } else {
+          sHpBar.className = "h-full bg-emerald-500 rounded-full transition-all duration-500";
+        }
+      }
+
+      const sRewardDisplay = document.getElementById('studentRaidRewardDisplay');
+      if (sRewardDisplay) sRewardDisplay.textContent = tm.reward || '학급 요리 시간';
+
+      // 4. Student Attack Button & Status check
+      const currentStudent = activeStudent || (appState.students && appState.currentSession?.studentId ? appState.students.find(s => s.id === appState.currentSession.studentId) : null);
+      const attackBtn = document.getElementById('studentRaidAttackBtn');
+      const attackBtnText = document.getElementById('studentRaidAttackBtnText');
+      const statusHelp = document.getElementById('studentRaidStatusHelp');
+      const myDmgBadge = document.getElementById('studentMyDmgTotalBadge');
+      const logList = document.getElementById('raidLogList');
+
+      if (currentStudent) {
+        const today = new Date().toISOString().split('T')[0];
+        const repId = currentStudent.representativePokeId;
+        const repData = (repId && currentStudent.collected) ? (currentStudent.collected[repId] || currentStudent.collected[String(repId)]) : null;
+        const repLevel = repData ? (repData.level || 1) : 0;
+        const hasAttackedToday = currentStudent.lastRaidDate === today;
+
+        // Calculate student's total contributed damage
+        const studentLogs = Array.isArray(tm.logs) ? tm.logs.filter(l => l.studentId === currentStudent.id) : [];
+        const studentTotalDmg = studentLogs.reduce((acc, l) => acc + (l.damage || 0), 0);
+        if (myDmgBadge) {
+          myDmgBadge.textContent = `내 기여 ${studentTotalDmg.toLocaleString()} 데미지`;
+        }
+
+        // Render logs for this student
+        if (logList) {
+          if (studentLogs.length === 0) {
+            logList.innerHTML = '<p class="text-center text-slate-400 py-2">아직 공격 기록이 없습니다. 도전해보세요!</p>';
+          } else {
+            logList.innerHTML = studentLogs.slice(0, 10).map(l => `
+              <div class="py-1.5 flex items-center justify-between text-xs">
+                <span class="text-slate-500 font-mono text-[11px]">${l.time || l.date}</span>
+                <span class="text-slate-800 font-jua font-medium">${l.pokeName}</span>
+                <span class="font-bold font-mono ${l.isCrit ? 'text-amber-600' : 'text-rose-600'}">-${l.damage} HP ${l.isCrit ? '🔥 크리티컬!' : ''}</span>
+              </div>
+            `).join('');
+          }
+        }
+
+        // Configure Attack Button
+        if (attackBtn && attackBtnText && statusHelp) {
+          if (isCleared) {
+            attackBtn.disabled = true;
+            attackBtn.className = "w-full py-4 rounded-2xl bg-amber-500 text-slate-950 font-jua text-base sm:text-lg shadow-md flex items-center justify-center gap-2 cursor-default";
+            attackBtnText.textContent = "🎉 미션 격파 완료! 보상 획득!";
+            statusHelp.textContent = "우리 반이 힘을 합쳐 선생님몬을 물리쳤습니다! 약속된 보상을 즐겨요!";
+          } else if (hasAttackedToday) {
+            attackBtn.disabled = true;
+            attackBtn.className = "w-full py-4 rounded-2xl bg-slate-400 text-slate-800 font-jua text-base sm:text-lg shadow-inner flex items-center justify-center gap-2 cursor-not-allowed";
+            attackBtnText.textContent = "오늘 도전 완료 ✓";
+            statusHelp.textContent = "오늘의 공격 완료! 내일 다시 도전할 수 있어요.";
+          } else if (repLevel < 4) {
+            attackBtn.disabled = true;
+            attackBtn.className = "w-full py-4 rounded-2xl bg-slate-700/80 text-slate-400 font-jua text-sm sm:text-base shadow flex items-center justify-center gap-2 cursor-not-allowed border border-slate-600";
+            attackBtnText.textContent = "🔒 레벨 4 이상 대표 포켓몬만 도전 가능";
+            const lvlText = repData ? `Lv.${repData.level} (${getLevelTier(repData.level).name})` : '대표 포켓몬 미지정';
+            statusHelp.textContent = `현재 대표 포켓몬: ${lvlText} (훈련으로 레벨 4 이상 성장시켜보세요!)`;
+          } else {
+            attackBtn.disabled = false;
+            attackBtn.className = "w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-jua text-base sm:text-lg shadow-md transition flex items-center justify-center gap-2 cursor-pointer";
+            attackBtnText.textContent = "선생님몬에게 도전하기!";
+            statusHelp.textContent = "레벨 4 이상 대표 포켓몬으로 강력한 일격을 날려보세요!";
+          }
+        }
+      }
+    }
+
+    function toggleRaidLogs() {
+      const box = document.getElementById('raidLogBox');
+      const arrow = document.getElementById('raidLogArrow');
+      if (!box) return;
+      const isClosed = box.classList.contains('hidden');
+      if (isClosed) {
+        box.classList.remove('hidden');
+        if (arrow) arrow.textContent = '▼';
+      } else {
+        box.classList.add('hidden');
+        if (arrow) arrow.textContent = '▶';
+      }
+    }
+
+    function executeRaidAttack() {
+      const currentStudent = activeStudent || (appState.students && appState.currentSession?.studentId ? appState.students.find(s => s.id === appState.currentSession.studentId) : null);
+      if (!currentStudent) {
+        alert('학생 정보를 찾을 수 없습니다.');
+        return;
+      }
+      const today = new Date().toISOString().split('T')[0];
+      if (currentStudent.lastRaidDate === today) {
+        alert('오늘 이미 선생님몬에게 도전했습니다. 내일 다시 도전해주세요!');
+        return;
+      }
+      const repId = currentStudent.representativePokeId;
+      const repPoke = (repId && currentStudent.collected) ? POKEMON_DATA.find(p => p.id == repId) : null;
+      const repData = (repId && currentStudent.collected) ? (currentStudent.collected[repId] || currentStudent.collected[String(repId)]) : null;
+      const repLevel = repData ? (repData.level || 1) : 0;
+      if (repLevel < 4) {
+        alert('레벨 4(금색) 이상의 대표 포켓몬만 선생님몬에게 도전할 수 있습니다!');
+        return;
+      }
+      if (appState.teacherMonster.currentHp <= 0) {
+        alert('선생님몬이 이미 격파되었습니다! 선생님이 새 시즌을 시작하면 다시 도전할 수 있습니다.');
+        return;
+      }
+
+      // Damage Calculation
+      const friendship = repData.friendship || 0;
+      let baseDmg = 0;
+      let critChance = 0.20;
+      if (repLevel >= 5) {
+        baseDmg = 120 + Math.floor(Math.random() * 40) + (friendship * 2);
+        critChance = 0.35;
+      } else {
+        baseDmg = 65 + Math.floor(Math.random() * 30) + Math.floor(friendship * 1.5);
+        critChance = 0.20;
+      }
+
+      const isCrit = Math.random() < critChance;
+      const damage = isCrit ? Math.round(baseDmg * 1.5) : baseDmg;
+
+      // Populate Battle Modal Elements
+      const modal = document.getElementById('raidBattleModal');
+      const studentImg = document.getElementById('battleStudentPokeImg');
+      const studentName = document.getElementById('battleStudentPokeName');
+      const studentTier = document.getElementById('battleStudentPokeTier');
+      const crown = document.getElementById('battleCrownIcon');
+      const monsterName = document.getElementById('battleMonsterName');
+      const miniHpBar = document.getElementById('battleMonsterHpMiniBar');
+      const narrative = document.getElementById('battleNarrative');
+      const damagePopup = document.getElementById('battleDamagePopup');
+      const clearBox = document.getElementById('battleClearBox');
+      const clearRewardText = document.getElementById('battleClearRewardText');
+      const pokeBox = document.getElementById('battleStudentPokeBox');
+      const monsterBox = document.getElementById('battleMonsterBox');
+
+      if (studentImg) studentImg.src = repPoke ? (repPoke.imageUrl || repPoke.spriteUrl || '') : '';
+      if (studentName) studentName.textContent = repPoke ? repPoke.name : '포켓몬';
+      if (studentTier) {
+        const tier = getLevelTier(repLevel);
+        studentTier.textContent = `Lv.${repLevel} · ${tier.name}`;
+        studentTier.className = `text-[10px] px-2 py-0.2 rounded-full font-bold ${tier.badgeClass} mt-0.5`;
+      }
+      if (crown) crown.classList.toggle('hidden', repLevel < 5);
+      if (monsterName) monsterName.textContent = appState.teacherMonster.name || '선생님몬';
+
+      const prevHp = appState.teacherMonster.currentHp;
+      const maxHp = appState.teacherMonster.maxHp || 2000;
+      const prevPercent = Math.max(0, Math.min(100, Math.round((prevHp / maxHp) * 100)));
+      if (miniHpBar) miniHpBar.style.width = `${prevPercent}%`;
+
+      if (damagePopup) damagePopup.classList.add('hidden');
+      if (clearBox) clearBox.classList.add('hidden');
+      if (narrative) narrative.innerHTML = `<span class="text-teal-300 font-bold">${currentStudent.name}</span> 학생의 <span class="text-amber-300 font-bold">${repPoke.name}</span>(이)가 돌진합니다!`;
+
+      // Show Battle Modal
+      modal.classList.remove('hidden');
+      soundManager.playAttack();
+
+      // Step 1: Lunge animation
+      if (pokeBox) pokeBox.classList.add('translate-x-6');
+
+      setTimeout(() => {
+        if (pokeBox) pokeBox.classList.remove('translate-x-6');
+        if (monsterBox) monsterBox.classList.add('translate-x-2', 'brightness-125');
+
+        if (isCrit) {
+          soundManager.playCrit();
+        } else {
+          soundManager.playBallAward();
+        }
+
+        // Apply Damage
+        const newHp = Math.max(0, prevHp - damage);
+        appState.teacherMonster.currentHp = newHp;
+        currentStudent.lastRaidDate = today;
+
+        const bonusHappy = 15;
+        currentStudent.happy = (currentStudent.happy || 0) + bonusHappy;
+
+        // Create Raid Log
+        const now = new Date();
+        const timeStr = `${now.getMonth() + 1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+        if (!Array.isArray(appState.teacherMonster.logs)) appState.teacherMonster.logs = [];
+        appState.teacherMonster.logs.unshift({
+          studentId: currentStudent.id,
+          studentName: currentStudent.name,
+          pokeName: repPoke.name,
+          damage: damage,
+          isCrit: isCrit,
+          date: today,
+          time: timeStr
+        });
+
+        // Show floating damage
+        if (damagePopup) {
+          damagePopup.textContent = (isCrit ? '🔥 크리티컬! ' : '💥 ') + `-${damage} HP!`;
+          damagePopup.classList.remove('hidden');
+        }
+
+        // Animate mini HP bar
+        const newPercent = Math.max(0, Math.min(100, Math.round((newHp / maxHp) * 100)));
+        if (miniHpBar) miniHpBar.style.width = `${newPercent}%`;
+
+        // Check if Defeated
+        if (newHp === 0) {
+          soundManager.playFanfare(true);
+          if (clearBox) clearBox.classList.remove('hidden');
+          if (clearRewardText) clearRewardText.textContent = appState.teacherMonster.reward || '학급 요리 시간';
+          if (narrative) {
+            narrative.innerHTML = `
+              <span class="text-amber-300 font-bold text-base">🎉 축하합니다! 선생님몬을 완전히 격파했습니다!</span><br/>
+              <span class="text-white">약속된 보상 [${appState.teacherMonster.reward || '학급 요리 시간'}] 획득! (+${bonusHappy} 해피 지급)</span>
+            `;
+          }
+        } else {
+          if (narrative) {
+            narrative.innerHTML = `
+              <span class="text-teal-300 font-bold">${currentStudent.name}</span> 학생의 <span class="text-amber-300 font-bold">${repPoke.name}</span>(이)가 <span class="text-rose-400 font-bold">${damage} 데미지</span>를 입혔습니다!<br/>
+              <span class="text-emerald-300">협동 기여 보너스 +${bonusHappy} 해피 획득! 🪙 (남은 HP: ${newHp.toLocaleString()})</span>
+            `;
+          }
+        }
+
+        saveState();
+        renderRaidUI();
+        if (activeStudent && activeStudent.id === currentStudent.id) {
+          renderStudentView(currentStudent.id);
+        }
+      }, 400);
+    }
+
+    function closeRaidBattleModal() {
+      const modal = document.getElementById('raidBattleModal');
+      if (modal) modal.classList.add('hidden');
+      const damagePopup = document.getElementById('battleDamagePopup');
+      if (damagePopup) damagePopup.classList.add('hidden');
+      const monsterBox = document.getElementById('battleMonsterBox');
+      if (monsterBox) monsterBox.classList.remove('translate-x-2', 'brightness-125');
+    }
+
+    /* Teacher Raid Management Modal Functions */
+    function openRaidManageModal() {
+      if (!appState.teacherMonster) {
+        appState.teacherMonster = {
+          name: '선생님몬',
+          maxHp: 2000,
+          currentHp: 2000,
+          reward: '학급 요리 시간',
+          logs: []
+        };
+      }
+      const tm = appState.teacherMonster;
+      const inputName = document.getElementById('settingRaidMonsterName');
+      const inputMaxHp = document.getElementById('settingRaidMaxHp');
+      const inputReward = document.getElementById('settingRaidRewardGoal');
+      const attacksCount = document.getElementById('raidTotalAttacksCount');
+      const leaderboardList = document.getElementById('raidLeaderboardList');
+
+      if (inputName) inputName.value = tm.name || '선생님몬';
+      if (inputMaxHp) inputMaxHp.value = tm.maxHp || 2000;
+      if (inputReward) inputReward.value = tm.reward || '학급 요리 시간';
+
+      const logs = Array.isArray(tm.logs) ? tm.logs : [];
+      if (attacksCount) attacksCount.textContent = `총 ${logs.length}회 공격`;
+
+      // Build student damage map
+      const damageMap = {};
+      const attackCountMap = {};
+      logs.forEach(l => {
+        damageMap[l.studentId] = (damageMap[l.studentId] || 0) + (l.damage || 0);
+        attackCountMap[l.studentId] = (attackCountMap[l.studentId] || 0) + 1;
+      });
+
+      const studentRanks = (appState.students || []).map(s => {
+        return {
+          id: s.id,
+          number: s.number,
+          name: s.name,
+          totalDamage: damageMap[s.id] || 0,
+          attackCount: attackCountMap[s.id] || 0
+        };
+      }).sort((a, b) => b.totalDamage - a.totalDamage || a.number - b.number);
+
+      const maxStudentDmg = Math.max(1, ...studentRanks.map(s => s.totalDamage));
+
+      if (leaderboardList) {
+        leaderboardList.innerHTML = studentRanks.map((s, idx) => {
+          let medal = `${idx + 1}등`;
+          if (idx === 0 && s.totalDamage > 0) medal = '🥇 1등';
+          else if (idx === 1 && s.totalDamage > 0) medal = '🥈 2등';
+          else if (idx === 2 && s.totalDamage > 0) medal = '🥉 3등';
+
+          const pct = Math.round((s.totalDamage / maxStudentDmg) * 100);
+
+          return `
+            <div class="p-3 flex items-center justify-between gap-3 text-xs">
+              <div class="flex items-center gap-2.5 min-w-0">
+                <span class="w-12 font-jua text-center ${idx < 3 && s.totalDamage > 0 ? 'text-amber-400 font-bold' : 'text-slate-400'}">${medal}</span>
+                <span class="font-jua text-white text-sm truncate">${s.number}번 ${s.name}</span>
+                <span class="text-[11px] text-slate-400 font-mono">(${s.attackCount}회 참여)</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-20 sm:w-28 h-2 bg-slate-800 rounded-full overflow-hidden">
+                  <div class="h-full bg-teal-400 rounded-full" style="width: ${pct}%"></div>
+                </div>
+                <span class="w-20 text-right font-mono font-bold ${s.totalDamage > 0 ? 'text-rose-400' : 'text-slate-500'}">
+                  ${s.totalDamage.toLocaleString()} HP
+                </span>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      document.getElementById('raidManageModal').classList.remove('hidden');
+    }
+
+    function closeRaidManageModal() {
+      document.getElementById('raidManageModal').classList.add('hidden');
+    }
+
+    function saveRaidSettings() {
+      if (!appState.teacherMonster) appState.teacherMonster = {};
+      const name = document.getElementById('settingRaidMonsterName').value.trim() || '선생님몬';
+      const maxHp = parseInt(document.getElementById('settingRaidMaxHp').value) || 2000;
+      const reward = document.getElementById('settingRaidRewardGoal').value.trim() || '학급 요리 시간';
+
+      appState.teacherMonster.name = name;
+      appState.teacherMonster.maxHp = maxHp;
+      if (appState.teacherMonster.currentHp === undefined || appState.teacherMonster.currentHp > maxHp) {
+        appState.teacherMonster.currentHp = maxHp;
+      }
+      appState.teacherMonster.reward = reward;
+
+      saveState();
+      renderRaidUI();
+      showToast('✅ 선생님몬 미션 설정이 저장되었습니다!');
+    }
+
+    function resetRaidHp() {
+      if (!confirm('선생님몬의 체력을 100% 최대로 회복하여 새 시즌을 시작하시겠습니까?\\n(학생들의 누적 공격 기록은 보존됩니다)')) return;
+      if (!appState.teacherMonster) appState.teacherMonster = {};
+      appState.teacherMonster.currentHp = appState.teacherMonster.maxHp || 2000;
+      saveState();
+      renderRaidUI();
+      openRaidManageModal();
+      showToast('🔄 선생님몬 체력이 100% 회복되었습니다! 새 미션 시작!');
+    }
+
+    function adjustRaidHp(delta) {
+      if (!appState.teacherMonster) appState.teacherMonster = {};
+      const maxHp = appState.teacherMonster.maxHp || 2000;
+      const curHp = appState.teacherMonster.currentHp !== undefined ? appState.teacherMonster.currentHp : maxHp;
+      appState.teacherMonster.currentHp = Math.max(0, Math.min(maxHp, curHp + delta));
+      saveState();
+      renderRaidUI();
+      openRaidManageModal();
+      showToast(`체력 조정: ${appState.teacherMonster.currentHp} / ${maxHp} HP`);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
