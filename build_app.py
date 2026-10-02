@@ -40,6 +40,7 @@ html_template = """<!DOCTYPE html>
   <!-- Firebase Cloud Sync (Free Realtime Firestore) -->
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+  <script src="firebase_config.js"></script>
 
   <script>
     tailwind.config = {
@@ -1098,14 +1099,16 @@ html_template = """<!DOCTYPE html>
     let isCloudSaving = false;
 
     function initCloudSync() {
-      if (!window.firebase || !appState.firebaseConfig) {
+      const config = appState.firebaseConfig || (window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey ? window.FIREBASE_CONFIG : null);
+      if (!window.firebase || !config) {
         updateCloudStatusUI(false);
         return;
       }
+      appState.firebaseConfig = config;
 
       try {
         if (!firebase.apps || firebase.apps.length === 0) {
-          firebase.initializeApp(appState.firebaseConfig);
+          firebase.initializeApp(config);
         }
         firestoreDb = firebase.firestore();
         const docId = (appState.classId || 'classroom_5_default').trim();
@@ -1333,6 +1336,9 @@ html_template = """<!DOCTYPE html>
       }
 
       // Initialize Cloud Sync if config exists
+      if (!appState.firebaseConfig && window.FIREBASE_CONFIG && window.FIREBASE_CONFIG.apiKey) {
+        appState.firebaseConfig = window.FIREBASE_CONFIG;
+      }
       if (appState.firebaseConfig) {
         initCloudSync();
       } else {
