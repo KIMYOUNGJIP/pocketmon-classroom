@@ -202,7 +202,7 @@
 <body class="bg-[#0f172a] text-slate-100 min-h-screen flex flex-col selection:bg-amber-400 selection:text-slate-900">
 
   <!-- Toast Notification Alert -->
-  <div id="toastAlert" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-2xl bg-slate-900/95 border-2 border-emerald-400 text-white font-jua text-sm shadow-2xl transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-4 flex items-center gap-2.5">
+  <div id="toastAlert" class="fixed top-5 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-2xl bg-slate-900/95 border-2 border-emerald-400 text-white font-jua text-sm shadow-2xl transition-all duration-300 opacity-0 pointer-events-none transform -translate-y-4 flex items-center gap-2.5">
     <span class="mini-ball"></span>
     <span id="toastMessage">안내 메시지</span>
   </div>
@@ -476,7 +476,7 @@
       </div>
 
       <!-- Self Presentation Registration Banner -->
-      <div class="bg-gradient-to-r from-emerald-950/60 via-slate-900 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-5 shadow-xl flex flex-wrap items-center justify-between gap-4">
+      <div id="studentSelfCheckinBanner" class="bg-gradient-to-r from-emerald-950/60 via-slate-900 to-slate-900 border-2 border-emerald-500/50 rounded-3xl p-5 shadow-xl flex flex-wrap items-center justify-between gap-4">
         <div class="flex items-center gap-3.5">
           <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl flex-shrink-0 border border-emerald-500/30">
             🙋
@@ -1159,6 +1159,27 @@
           </div>
         </div>
 
+        <!-- Student Self Check-in Permission Setting (학생 셀프 등록 허용/차단 토글) -->
+        <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-700/80 flex items-center justify-between gap-4">
+          <div>
+            <h4 class="font-jua text-emerald-300 flex items-center gap-1.5 text-sm sm:text-base">
+              <span>🗣️</span> 학생 셀프 발표 등록 ("내 생각을 말했나요?") 허용 여부
+            </h4>
+            <p class="text-xs text-slate-400 mt-0.5">
+              학생들이 직접 발표를 셀프 체크인하여 볼과 포인트를 얻는 기능을 열어두거나 잠글 수 있습니다.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 flex-shrink-0">
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" id="settingAllowSelfCheckin" class="sr-only peer" onchange="toggleSelfCheckinPermission(this.checked)" checked />
+              <div class="w-11 h-6 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+            </label>
+            <span id="selfCheckinPermissionStatus" class="text-xs font-jua text-emerald-400 w-16 text-center">
+              허용됨
+            </span>
+          </div>
+        </div>
+
         <!-- Teacher Password Setting -->
         <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-700/80 flex flex-wrap items-center justify-between gap-3">
           <div>
@@ -1365,9 +1386,32 @@
       <div class="p-5 flex-1 overflow-y-auto space-y-5 text-sm">
         <!-- Settings Form -->
         <div class="bg-slate-900/80 p-4 sm:p-5 rounded-2xl border border-slate-700/80 space-y-4">
-          <h4 class="font-jua text-teal-300 flex items-center gap-1.5">
-            <span>⚙️</span> 미션 기본 설정
-          </h4>
+          <div class="flex items-center justify-between">
+            <h4 class="font-jua text-teal-300 flex items-center gap-1.5 text-base">
+              <span>⚙️</span> 미션 기본 설정
+            </h4>
+            <span id="modalRaidHpPercentBadge" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/40 font-bold">
+              체력 100%
+            </span>
+          </div>
+
+          <!-- Live HP Monitor Box inside Modal -->
+          <div class="bg-slate-950/80 p-3.5 rounded-2xl border border-teal-500/40 space-y-2 shadow-inner">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-jua text-teal-300 flex items-center gap-1">
+                <span>❤️</span> 선생님몬 현재 남은 체력
+              </span>
+              <span id="modalRaidHpDisplay" class="font-mono text-sm font-bold text-white">
+                10,000 / 10,000 HP
+              </span>
+            </div>
+            <div class="w-full h-3.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700 shadow-inner">
+              <div id="modalRaidHpBar" class="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-300" style="width: 100%;"></div>
+            </div>
+            <div id="modalRaidFeedback" class="text-xs font-jua text-center min-h-[18px] text-slate-400 transition-all">
+              아래 버튼으로 체력을 즉시 회복하거나 조정할 수 있습니다.
+            </div>
+          </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
             <div>
@@ -1376,8 +1420,8 @@
             </div>
 
             <div>
-              <label class="block text-slate-400 mb-1">최대 체력 (Max HP)</label>
-              <input type="number" id="settingRaidMaxHp" value="2000" min="500" max="10000" step="100" class="w-full p-2.5 bg-slate-800 border border-slate-600 rounded-xl text-teal-300 font-bold focus:border-teal-400 focus:outline-none" />
+              <label class="block text-slate-400 mb-1">최대 체력 (Max HP - 약 2달 코스: 10,000 HP 권장)</label>
+              <input type="number" id="settingRaidMaxHp" value="10000" min="500" max="50000" step="500" class="w-full p-2.5 bg-slate-800 border border-slate-600 rounded-xl text-teal-300 font-bold focus:border-teal-400 focus:outline-none" />
             </div>
           </div>
 
@@ -1388,19 +1432,19 @@
 
           <!-- Quick Action Buttons -->
           <div class="flex items-center gap-2 flex-wrap pt-1">
-            <button onclick="saveRaidSettings()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 text-white font-jua text-xs shadow-md transition active:scale-95 flex items-center gap-1.5 cursor-pointer">
+            <button type="button" onclick="saveRaidSettings()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 active:scale-95 text-white font-jua text-xs shadow-md transition flex items-center gap-1.5 cursor-pointer">
               <span>💾</span>
               <span>설정 저장</span>
             </button>
-            <button onclick="resetRaidHp()" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-teal-300 border border-teal-600/50 text-xs font-jua transition cursor-pointer" title="체력을 최대치로 100% 채웁니다">
+            <button type="button" onclick="resetRaidHp()" class="px-3.5 py-2.5 rounded-xl bg-emerald-900/70 hover:bg-emerald-800 text-emerald-200 border border-emerald-500/60 text-xs font-jua transition active:scale-95 flex items-center gap-1 cursor-pointer" title="체력을 최대치로 100% 채웁니다">
               <span>🔄</span>
               <span>체력 완전 회복 (새 시즌 시작)</span>
             </button>
-            <button onclick="adjustRaidHp(-200)" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-rose-900/50 text-rose-300 border border-slate-700 text-xs font-jua transition cursor-pointer" title="테스트용: 체력 200 차감">
-              -200 HP 테스트
+            <button type="button" onclick="adjustRaidHp(-500)" class="px-3 py-2.5 rounded-xl bg-rose-950/80 hover:bg-rose-900 text-rose-300 border border-rose-700/60 text-xs font-jua transition active:scale-95 cursor-pointer" title="체력 500 차감">
+              💥 -500 HP
             </button>
-            <button onclick="adjustRaidHp(200)" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-emerald-900/50 text-emerald-300 border border-slate-700 text-xs font-jua transition cursor-pointer" title="테스트용: 체력 200 회복">
-              +200 HP
+            <button type="button" onclick="adjustRaidHp(500)" class="px-3 py-2.5 rounded-xl bg-teal-950/80 hover:bg-teal-900 text-teal-300 border border-teal-700/60 text-xs font-jua transition active:scale-95 cursor-pointer" title="체력 500 회복">
+              ✨ +500 HP
             </button>
           </div>
         </div>
@@ -1641,6 +1685,22 @@
           osc.stop(now + i * 0.05 + 0.12);
         });
       }
+      playMiss() {
+        if (!this.enabled) return;
+        this.init();
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(220, now);
+        osc.frequency.exponentialRampToValueAtTime(110, now + 0.18);
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.18);
+      }
     }
     const soundManager = new RetroSoundManager();
 
@@ -1653,15 +1713,15 @@
       dailyHappyBonus: 20,     // 매일 출석 시 기본 지급 포인트
       presentHappyBonus: 15,   // 발표 1회당 추가 지급 포인트
       ballExchangeCost: 100,   // 추가 몬스터볼 교환 필요 포인트
-      students: [{"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}, {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "lastRaidDate": "", "collected": {}}],
+      students: [{"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}, {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "todayTrainCount": 0, "lastRaidDate": "", "collected": {}}],
       soundEnabled: true,
       lastDate: new Date().toISOString().split('T')[0],
       currentSession: null,
       // Our Class Raid Mission (선생님몬과 대결하기)
       teacherMonster: {
         name: '선생님몬',
-        maxHp: 2000,
-        currentHp: 2000,
+        maxHp: 10000,
+        currentHp: 10000,
         reward: '학급 요리 시간 & 파티',
         logs: []
       },
@@ -1739,6 +1799,7 @@
         dailyHappyBonus: appState.dailyHappyBonus || 20,
         presentHappyBonus: appState.presentHappyBonus || 15,
         ballExchangeCost: appState.ballExchangeCost || 100,
+        allowSelfCheckin: appState.allowSelfCheckin !== false,
         students: appState.students,
         teacherMonster: appState.teacherMonster,
         lastDate: appState.lastDate,
@@ -1764,12 +1825,21 @@
       if (data.dailyHappyBonus !== undefined) appState.dailyHappyBonus = data.dailyHappyBonus;
       if (data.presentHappyBonus !== undefined) appState.presentHappyBonus = data.presentHappyBonus;
       if (data.ballExchangeCost !== undefined) appState.ballExchangeCost = data.ballExchangeCost;
+      if (data.allowSelfCheckin !== undefined) appState.allowSelfCheckin = data.allowSelfCheckin;
       if (data.lastDate) appState.lastDate = data.lastDate;
       if (Array.isArray(data.students)) {
         appState.students = data.students;
       }
       if (data.teacherMonster) {
         appState.teacherMonster = data.teacherMonster;
+        if (appState.teacherMonster.maxHp === 2000) {
+          appState.teacherMonster.maxHp = 10000;
+          if (appState.teacherMonster.currentHp === 2000 || appState.teacherMonster.currentHp > 10000) {
+            appState.teacherMonster.currentHp = 10000;
+          } else {
+            appState.teacherMonster.currentHp = Math.round((appState.teacherMonster.currentHp / 2000) * 10000);
+          }
+        }
       }
 
       try {
@@ -1778,6 +1848,7 @@
 
       updateGlobalStats();
       renderRaidUI();
+      updateSettingsInputs();
       if (appState.currentSession) {
         if (appState.currentSession.role === 'teacher') {
           renderStudentGrid();
@@ -1936,28 +2007,36 @@
           s.todayCount = 0;
           s.todayLog = null;
           s.trainedToday = false;
+          s.todayTrainCount = 0;
           s.lastRaidDate = '';
         });
         saveState();
       }
 
-      // Ensure every student has todayCount and lastRaidDate property initialized
+      // Ensure every student has todayCount, todayTrainCount, and lastRaidDate property initialized
       if (appState.students) {
         appState.students.forEach(s => {
           if (typeof s.todayCount !== 'number') s.todayCount = 0;
+          if (typeof s.todayTrainCount !== 'number') s.todayTrainCount = s.trainedToday ? 1 : 0;
           if (typeof s.lastRaidDate !== 'string') s.lastRaidDate = '';
         });
       }
 
-      // Ensure teacherMonster is present
+      // Ensure teacherMonster is present (Default 10,000 HP for 2-month course)
       if (!appState.teacherMonster || typeof appState.teacherMonster !== 'object') {
         appState.teacherMonster = {
           name: '선생님몬',
-          maxHp: 2000,
-          currentHp: 2000,
+          maxHp: 10000,
+          currentHp: 10000,
           reward: '학급 요리 시간',
           logs: []
         };
+      }
+      if (appState.teacherMonster.maxHp === 2000) {
+        appState.teacherMonster.maxHp = 10000;
+        if (appState.teacherMonster.currentHp === 2000 || appState.teacherMonster.currentHp > 10000) {
+          appState.teacherMonster.currentHp = 10000;
+        }
       }
       if (!Array.isArray(appState.teacherMonster.logs)) {
         appState.teacherMonster.logs = [];
@@ -2152,6 +2231,7 @@
         return;
       }
 
+      appState.currentSession = session;
       loginScreen.classList.add('hidden');
 
       if (session.role === 'teacher') {
@@ -2354,7 +2434,7 @@
     let activeStudent = null;
 
     function renderStudentView(studentId) {
-      activeStudent = appState.students.find(s => s.id === studentId);
+      activeStudent = appState.students.find(s => s.id == studentId);
       if (!activeStudent) return;
 
       const student = activeStudent;
@@ -2372,6 +2452,16 @@
       } else {
         openBtn.classList.add('hidden');
         noBallMsg.classList.remove('hidden');
+      }
+
+      // Self-checkin banner visibility based on teacher setting
+      const selfBanner = document.getElementById('studentSelfCheckinBanner');
+      if (selfBanner) {
+        if (appState.allowSelfCheckin === false) {
+          selfBanner.classList.add('hidden');
+        } else {
+          selfBanner.classList.remove('hidden');
+        }
       }
 
       // Happy Points
@@ -2454,11 +2544,25 @@
         document.getElementById('studentViewRepName').textContent = repPoke.name;
         document.getElementById('studentViewRepLevel').textContent = `레벨 ${repData.level || 1} • 친밀도 ${repData.friendship || 7}`;
 
-        if (trainBtn) {
-          trainBtn.disabled = false;
-          trainBtn.className = "w-full mt-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-jua text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer";
+        const trainCount = student.todayTrainCount || (student.trainedToday ? 1 : 0);
+        const maxDailyTrain = 2;
+        const remainingTrain = Math.max(0, maxDailyTrain - trainCount);
+
+        if (trainBtn && trainBtnText) {
+          if (trainCount >= maxDailyTrain) {
+            trainBtn.disabled = true;
+            trainBtn.className = "w-full mt-4 py-3 rounded-xl bg-slate-700/60 text-slate-400 font-jua text-sm flex items-center justify-center gap-2 cursor-not-allowed border border-slate-600";
+            trainBtnText.textContent = "오늘 훈련 2회 완료 (내일 다시 만나요!)";
+          } else if ((student.happy || 0) < 50) {
+            trainBtn.disabled = false;
+            trainBtn.className = "w-full mt-4 py-3 rounded-xl bg-amber-600/80 hover:bg-amber-600 text-white font-jua text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer";
+            trainBtnText.textContent = `대표 포켓몬 훈련하기 (-50 해피 / 오늘 ${remainingTrain}회 가능)`;
+          } else {
+            trainBtn.disabled = false;
+            trainBtn.className = "w-full mt-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-jua text-sm shadow-md transition flex items-center justify-center gap-2 cursor-pointer";
+            trainBtnText.textContent = `대표 포켓몬 훈련하기 (-50 해피 / 오늘 ${remainingTrain}회 가능)`;
+          }
         }
-        if (trainBtnText) trainBtnText.textContent = "대표 포켓몬 훈련하기 (-50 해피)";
       } else {
         if (setBox) setBox.classList.add('hidden');
         if (emptyBox) emptyBox.classList.remove('hidden');
@@ -2525,6 +2629,10 @@
 
     function openStudentSelfCheckin() {
       if (!activeStudent) return;
+      if (appState.allowSelfCheckin === false) {
+        alert('현재 선생님이 학생 셀프 발표 등록 기능을 잠가두었습니다.');
+        return;
+      }
       document.getElementById('selfCheckinModal').classList.remove('hidden');
     }
     function closeSelfCheckinModal() {
@@ -2751,7 +2859,7 @@
 
     function openTrainingModalForStudent(studentId) {
       soundManager.init();
-      activeTrainingStudent = appState.students.find(s => s.id === studentId);
+      activeTrainingStudent = appState.students.find(s => s.id == studentId);
       if (!activeTrainingStudent) return;
 
       const student = activeTrainingStudent;
@@ -2812,12 +2920,16 @@
       }
 
       const btn = document.getElementById('trainingActionBtn');
-      if (student.trainedToday) {
-        btn.textContent = "오늘 훈련 완료 (내일 다시 도전하세요!)";
+      const trainCount = student.todayTrainCount || (student.trainedToday ? 1 : 0);
+      const maxDailyTrain = 2;
+      const remainingTrain = Math.max(0, maxDailyTrain - trainCount);
+
+      if (trainCount >= maxDailyTrain) {
+        btn.textContent = "오늘 훈련 완료 (하루 최대 2회 완료 / 내일 다시 도전!)";
         btn.disabled = true;
         btn.className = "w-full py-3 rounded-2xl bg-slate-200 text-slate-500 font-jua text-sm sm:text-base cursor-not-allowed";
       } else if ((student.happy || 0) < 50) {
-        btn.textContent = "해피 포인트 부족 (50 해피 필요)";
+        btn.textContent = `해피 포인트 부족 (50 해피 필요 / 오늘 ${remainingTrain}회 남음)`;
         btn.disabled = true;
         btn.className = "w-full py-3 rounded-2xl bg-slate-200 text-slate-500 font-jua text-sm sm:text-base cursor-not-allowed";
       } else if ((repData.level || 1) >= 5 && !EVOLUTION_MAP[repPoke.id]) {
@@ -2826,7 +2938,7 @@
         btn.className = "w-full py-3 rounded-2xl bg-amber-400 text-slate-900 font-jua text-sm sm:text-base cursor-not-allowed";
       } else {
         const nextPokeId = EVOLUTION_MAP[repPoke.id];
-        btn.textContent = nextPokeId ? "훈련 및 진화하기 (-50 해피)" : "훈련하기 (-50 해피, 레벨 +1)";
+        btn.textContent = (nextPokeId ? "훈련 및 진화하기 (-50 해피)" : "훈련하기 (-50 해피, 레벨 +1)") + ` · [오늘 ${remainingTrain}회 남음]`;
         btn.disabled = false;
         btn.className = "w-full py-3 rounded-2xl bg-[#00897b] hover:bg-[#00796b] active:scale-95 text-white font-jua text-sm sm:text-base shadow-md transition cursor-pointer";
       }
@@ -2845,10 +2957,19 @@
       const repId = student.representativePokeId;
       if (!repId || !student.collected || !student.collected[repId]) return;
 
-      if ((student.happy || 0) < 50 || student.trainedToday) return;
+      const trainCount = student.todayTrainCount || (student.trainedToday ? 1 : 0);
+      if ((student.happy || 0) < 50) {
+        alert('해피 포인트가 부족합니다. (50 해피 필요)');
+        return;
+      }
+      if (trainCount >= 2) {
+        alert('하루 최대 2회까지만 훈련할 수 있습니다. 내일 다시 도전해주세요!');
+        return;
+      }
 
       student.happy -= 50;
-      student.trainedToday = true;
+      student.todayTrainCount = trainCount + 1;
+      student.trainedToday = student.todayTrainCount >= 2;
 
       const currentRep = student.collected[repId];
       const oldLevel = currentRep.level || 1;
@@ -2907,7 +3028,7 @@
       saveState();
       closeTrainingModal();
 
-      if (appState.currentSession && appState.currentSession.role === 'student') {
+      if ((activeStudent && activeStudent.id == student.id) || (appState.currentSession && appState.currentSession.role === 'student')) {
         renderStudentView(student.id);
       } else {
         renderStudentGrid();
@@ -3005,7 +3126,7 @@
     let pokedexFilter = 'all';
 
     function openPokedexForStudent(studentId) {
-      currentPokedexStudent = appState.students.find(s => s.id === studentId);
+      currentPokedexStudent = appState.students.find(s => s.id == studentId);
       if (!currentPokedexStudent) return;
 
       document.getElementById('pokedexStudentName').textContent = currentPokedexStudent.name;
@@ -3290,6 +3411,26 @@
         fcfg.value = appState.firebaseConfig ? JSON.stringify(appState.firebaseConfig, null, 2) : '';
       }
       updateCloudStatusUI(!!(firestoreDb && appState.firebaseConfig));
+
+      const chk = document.getElementById('settingAllowSelfCheckin');
+      const statusSpan = document.getElementById('selfCheckinPermissionStatus');
+      const isAllowed = appState.allowSelfCheckin !== false;
+      if (chk) chk.checked = isAllowed;
+      if (statusSpan) {
+        statusSpan.textContent = isAllowed ? '허용됨' : '잠금(차단)';
+        statusSpan.className = isAllowed ? 'text-xs font-jua text-emerald-400 w-16 text-center' : 'text-xs font-jua text-rose-400 w-16 text-center';
+      }
+    }
+
+    function toggleSelfCheckinPermission(allowed) {
+      appState.allowSelfCheckin = allowed;
+      const statusSpan = document.getElementById('selfCheckinPermissionStatus');
+      if (statusSpan) {
+        statusSpan.textContent = allowed ? '허용됨' : '잠금(차단)';
+        statusSpan.className = allowed ? 'text-xs font-jua text-emerald-400 w-16 text-center' : 'text-xs font-jua text-rose-400 w-16 text-center';
+      }
+      saveState();
+      showToast(allowed ? '✅ 학생 셀프 발표 등록이 허용되었습니다.' : '🔒 학생 셀프 발표 등록이 잠겼습니다(차단됨).');
     }
 
     function saveEconomySettings() {
@@ -3563,18 +3704,40 @@
     }
 
     /* ==================== CLASS COOPERATION RAID (선생님몬 배틀) ==================== */
+    function getRaidCooldownDays(repData) {
+      if (!repData || !repData.lastRaidSuccessDate) return 0;
+      const now = new Date();
+      const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+      const parts = String(repData.lastRaidSuccessDate).split('-');
+      if (parts.length !== 3) return 0;
+      const successMidnight = new Date(parseInt(parts[0], 10), parseInt(parts[1], 10) - 1, parseInt(parts[2], 10)).getTime();
+      const diffDays = Math.floor((todayMidnight - successMidnight) / (1000 * 60 * 60 * 24));
+      const remaining = 7 - diffDays;
+      return remaining > 0 ? remaining : 0;
+    }
+
+    function getRaidHitRate(level, friendship = 0) {
+      if (level < 4) return 0;
+      if (level === 4) {
+        // 4레벨은 가장 낮은 성공률: 기본 60% + 친밀도 보너스 최대 10% (합계 60% ~ 70%)
+        return Math.min(0.70, 0.60 + (friendship * 0.01));
+      }
+      // 5레벨 이상: 높은 성공률: 기본 92% + 친밀도 보너스 최대 6% (합계 92% ~ 98%)
+      return Math.min(0.98, 0.92 + (friendship * 0.008));
+    }
+
     function renderRaidUI() {
       if (!appState.teacherMonster || typeof appState.teacherMonster !== 'object') {
         appState.teacherMonster = {
           name: '선생님몬',
-          maxHp: 2000,
-          currentHp: 2000,
-          reward: '학급 요리 시간',
+          maxHp: 10000,
+          currentHp: 10000,
+          reward: '학급 요리 시간 & 파티',
           logs: []
         };
       }
       const tm = appState.teacherMonster;
-      const maxHp = tm.maxHp || 2000;
+      const maxHp = tm.maxHp || 10000;
       const curHp = Math.max(0, Math.min(maxHp, tm.currentHp !== undefined ? tm.currentHp : maxHp));
       tm.currentHp = curHp;
       const hpPercent = Math.max(0, Math.min(100, Math.round((curHp / maxHp) * 100)));
@@ -3598,7 +3761,7 @@
       if (tClearStatus) tClearStatus.classList.toggle('hidden', !isCleared);
 
       const tRewardGoal = document.getElementById('teacherRaidRewardGoal');
-      if (tRewardGoal) tRewardGoal.textContent = tm.reward || '학급 요리 시간';
+      if (tRewardGoal) tRewardGoal.textContent = tm.reward || '학급 요리 시간 & 파티';
 
       const tHpCur = document.getElementById('teacherRaidHpCurrent');
       if (tHpCur) tHpCur.textContent = curHp.toLocaleString();
@@ -3647,10 +3810,10 @@
       }
 
       const sRewardDisplay = document.getElementById('studentRaidRewardDisplay');
-      if (sRewardDisplay) sRewardDisplay.textContent = tm.reward || '학급 요리 시간';
+      if (sRewardDisplay) sRewardDisplay.textContent = tm.reward || '학급 요리 시간 & 파티';
 
       // 4. Student Attack Button & Status check
-      const currentStudent = activeStudent || (appState.students && appState.currentSession?.studentId ? appState.students.find(s => s.id === appState.currentSession.studentId) : null);
+      const currentStudent = activeStudent || (appState.students && appState.currentSession?.studentId ? appState.students.find(s => s.id == appState.currentSession.studentId) : null);
       const attackBtn = document.getElementById('studentRaidAttackBtn');
       const attackBtnText = document.getElementById('studentRaidAttackBtnText');
       const statusHelp = document.getElementById('studentRaidStatusHelp');
@@ -3660,9 +3823,11 @@
       if (currentStudent) {
         const today = new Date().toISOString().split('T')[0];
         const repId = currentStudent.representativePokeId;
+        const repPoke = (repId && currentStudent.collected) ? POKEMON_DATA.find(p => p.id == repId) : null;
         const repData = (repId && currentStudent.collected) ? (currentStudent.collected[repId] || currentStudent.collected[String(repId)]) : null;
         const repLevel = repData ? (repData.level || 1) : 0;
         const hasAttackedToday = currentStudent.lastRaidDate === today;
+        const cooldownDays = getRaidCooldownDays(repData);
 
         // Calculate student's total contributed damage
         const studentLogs = Array.isArray(tm.logs) ? tm.logs.filter(l => l.studentId === currentStudent.id) : [];
@@ -3676,13 +3841,24 @@
           if (studentLogs.length === 0) {
             logList.innerHTML = '<p class="text-center text-slate-400 py-2">아직 공격 기록이 없습니다. 도전해보세요!</p>';
           } else {
-            logList.innerHTML = studentLogs.slice(0, 10).map(l => `
-              <div class="py-1.5 flex items-center justify-between text-xs">
-                <span class="text-slate-500 font-mono text-[11px]">${l.time || l.date}</span>
-                <span class="text-slate-800 font-jua font-medium">${l.pokeName}</span>
-                <span class="font-bold font-mono ${l.isCrit ? 'text-amber-600' : 'text-rose-600'}">-${l.damage} HP ${l.isCrit ? '🔥 크리티컬!' : ''}</span>
-              </div>
-            `).join('');
+            logList.innerHTML = studentLogs.slice(0, 10).map(l => {
+              if (l.isMiss) {
+                return `
+                  <div class="py-1.5 flex items-center justify-between text-xs">
+                    <span class="text-slate-500 font-mono text-[11px]">${l.time || l.date}</span>
+                    <span class="text-slate-800 font-jua font-medium">${l.pokeName}</span>
+                    <span class="font-bold font-mono text-slate-500">🛡️ 방어됨 (MISS)</span>
+                  </div>
+                `;
+              }
+              return `
+                <div class="py-1.5 flex items-center justify-between text-xs">
+                  <span class="text-slate-500 font-mono text-[11px]">${l.time || l.date}</span>
+                  <span class="text-slate-800 font-jua font-medium">${l.pokeName}</span>
+                  <span class="font-bold font-mono ${l.isCrit ? 'text-amber-600' : 'text-rose-600'}">-${l.damage} HP ${l.isCrit ? '🔥 크리티컬!' : ''}</span>
+                </div>
+              `;
+            }).join('');
           }
         }
 
@@ -3697,18 +3873,25 @@
             attackBtn.disabled = true;
             attackBtn.className = "w-full py-4 rounded-2xl bg-slate-400 text-slate-800 font-jua text-base sm:text-lg shadow-inner flex items-center justify-center gap-2 cursor-not-allowed";
             attackBtnText.textContent = "오늘 도전 완료 ✓";
-            statusHelp.textContent = "오늘의 공격 완료! 내일 다시 도전할 수 있어요.";
+            statusHelp.textContent = "오늘의 공격 기회를 모두 사용했습니다. 내일 다시 도전할 수 있어요.";
           } else if (repLevel < 4) {
             attackBtn.disabled = true;
             attackBtn.className = "w-full py-4 rounded-2xl bg-slate-700/80 text-slate-400 font-jua text-sm sm:text-base shadow flex items-center justify-center gap-2 cursor-not-allowed border border-slate-600";
             attackBtnText.textContent = "🔒 레벨 4 이상 대표 포켓몬만 도전 가능";
             const lvlText = repData ? `Lv.${repData.level} (${getLevelTier(repData.level).name})` : '대표 포켓몬 미지정';
             statusHelp.textContent = `현재 대표 포켓몬: ${lvlText} (훈련으로 레벨 4 이상 성장시켜보세요!)`;
+          } else if (cooldownDays > 0) {
+            attackBtn.disabled = true;
+            attackBtn.className = "w-full py-4 rounded-2xl bg-slate-700/90 text-amber-300 font-jua text-sm sm:text-base shadow flex items-center justify-center gap-2 cursor-not-allowed border border-amber-500/40";
+            attackBtnText.textContent = `😴 ${repPoke ? repPoke.name : '포켓몬'} 휴식 중 (D-${cooldownDays}일 남음)`;
+            statusHelp.textContent = "공격 성공 시 7일간 휴식이 필요해요. 대표 포켓몬을 다른 4레벨+ 포켓몬으로 교체하면 지금 바로 도전 가능합니다!";
           } else {
+            const hitRate = getRaidHitRate(repLevel, repData ? repData.friendship : 0);
+            const hitRatePct = Math.round(hitRate * 100);
             attackBtn.disabled = false;
             attackBtn.className = "w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-jua text-base sm:text-lg shadow-md transition flex items-center justify-center gap-2 cursor-pointer";
-            attackBtnText.textContent = "선생님몬에게 도전하기!";
-            statusHelp.textContent = "레벨 4 이상 대표 포켓몬으로 강력한 일격을 날려보세요!";
+            attackBtnText.textContent = `선생님몬에게 도전하기! [성공률 ${hitRatePct}%]`;
+            statusHelp.textContent = `Lv.${repLevel} 대표 포켓몬으로 일격을 날립니다! (성공 시 데미지 부여 & 7일 휴식 돌입)`;
           }
         }
       }
@@ -3729,7 +3912,7 @@
     }
 
     function executeRaidAttack() {
-      const currentStudent = activeStudent || (appState.students && appState.currentSession?.studentId ? appState.students.find(s => s.id === appState.currentSession.studentId) : null);
+      const currentStudent = activeStudent || (appState.students && appState.currentSession?.studentId ? appState.students.find(s => s.id == appState.currentSession.studentId) : null);
       if (!currentStudent) {
         alert('학생 정보를 찾을 수 없습니다.');
         return;
@@ -3747,25 +3930,40 @@
         alert('레벨 4(금색) 이상의 대표 포켓몬만 선생님몬에게 도전할 수 있습니다!');
         return;
       }
+
+      const cooldownDays = getRaidCooldownDays(repData);
+      if (cooldownDays > 0) {
+        alert(`${repPoke ? repPoke.name : '포켓몬'}은(는) 최근 공격 성공 후 휴식 중입니다 (D-${cooldownDays}일 남음).\n대표 포켓몬을 다른 레벨 4 이상 포켓몬으로 교체하여 도전해보세요!`);
+        return;
+      }
+
       if (appState.teacherMonster.currentHp <= 0) {
         alert('선생님몬이 이미 격파되었습니다! 선생님이 새 시즌을 시작하면 다시 도전할 수 있습니다.');
         return;
       }
 
-      // Damage Calculation
-      const friendship = repData.friendship || 0;
-      let baseDmg = 0;
-      let critChance = 0.20;
-      if (repLevel >= 5) {
-        baseDmg = 120 + Math.floor(Math.random() * 40) + (friendship * 2);
-        critChance = 0.35;
-      } else {
-        baseDmg = 65 + Math.floor(Math.random() * 30) + Math.floor(friendship * 1.5);
-        critChance = 0.20;
-      }
+      // Hit rate & Damage Calculation
+      const friendship = repData ? (repData.friendship || 0) : 0;
+      const hitRate = getRaidHitRate(repLevel, friendship);
+      const isHit = Math.random() < hitRate;
 
-      const isCrit = Math.random() < critChance;
-      const damage = isCrit ? Math.round(baseDmg * 1.5) : baseDmg;
+      let damage = 0;
+      let isCrit = false;
+      if (isHit) {
+        let baseDmg = 0;
+        let critChance = 0.20;
+        if (repLevel >= 5) {
+          // 5레벨: 85~115 데미지 (평균 100) + 친밀도 보너스
+          baseDmg = 85 + Math.floor(Math.random() * 30) + Math.floor(friendship * 1.5);
+          critChance = 0.35;
+        } else {
+          // 4레벨: 45~65 데미지 (평균 55) + 친밀도 보너스
+          baseDmg = 45 + Math.floor(Math.random() * 20) + Math.floor(friendship * 1.0);
+          critChance = 0.20;
+        }
+        isCrit = Math.random() < critChance;
+        damage = isCrit ? Math.round(baseDmg * 1.5) : baseDmg;
+      }
 
       // Populate Battle Modal Elements
       const modal = document.getElementById('raidBattleModal');
@@ -3793,13 +3991,14 @@
       if (monsterName) monsterName.textContent = appState.teacherMonster.name || '선생님몬';
 
       const prevHp = appState.teacherMonster.currentHp;
-      const maxHp = appState.teacherMonster.maxHp || 2000;
+      const maxHp = appState.teacherMonster.maxHp || 10000;
       const prevPercent = Math.max(0, Math.min(100, Math.round((prevHp / maxHp) * 100)));
       if (miniHpBar) miniHpBar.style.width = `${prevPercent}%`;
 
       if (damagePopup) damagePopup.classList.add('hidden');
       if (clearBox) clearBox.classList.add('hidden');
-      if (narrative) narrative.innerHTML = `<span class="text-teal-300 font-bold">${currentStudent.name}</span> 학생의 <span class="text-amber-300 font-bold">${repPoke.name}</span>(이)가 돌진합니다!`;
+      const hitRatePct = Math.round(hitRate * 100);
+      if (narrative) narrative.innerHTML = `<span class="text-teal-300 font-bold">${currentStudent.name}</span> 학생의 <span class="text-amber-300 font-bold">${repPoke ? repPoke.name : '포켓몬'}</span>(이)가 돌진합니다! <span class="text-xs text-slate-300 font-mono">(적중 확률: ${hitRatePct}%)</span>`;
 
       // Show Battle Modal
       modal.classList.remove('hidden');
@@ -3810,8 +4009,55 @@
 
       setTimeout(() => {
         if (pokeBox) pokeBox.classList.remove('translate-x-6');
-        if (monsterBox) monsterBox.classList.add('translate-x-2', 'brightness-125');
 
+        if (!isHit) {
+          // Missed / Blocked!
+          if (monsterBox) monsterBox.classList.add('scale-110');
+          soundManager.playMiss();
+
+          // Today attack used, but NO 7-day cooldown on Pokemon!
+          currentStudent.lastRaidDate = today;
+          const effortHappy = 5;
+          currentStudent.happy = (currentStudent.happy || 0) + effortHappy;
+
+          // Create log
+          const now = new Date();
+          const timeStr = `${now.getMonth() + 1}/${now.getDate()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+          if (!Array.isArray(appState.teacherMonster.logs)) appState.teacherMonster.logs = [];
+          appState.teacherMonster.logs.unshift({
+            studentId: currentStudent.id,
+            studentName: currentStudent.name,
+            pokeName: repPoke ? repPoke.name : '포켓몬',
+            damage: 0,
+            isCrit: false,
+            isMiss: true,
+            date: today,
+            time: timeStr
+          });
+
+          if (damagePopup) {
+            damagePopup.textContent = '🛡️ 방어됨! (MISS)';
+            damagePopup.className = 'absolute -top-6 left-1/2 -translate-x-1/2 bg-slate-800 text-slate-300 font-jua text-sm sm:text-base px-3 py-1 rounded-full shadow-lg border border-slate-600 animate-bounce whitespace-nowrap z-20';
+            damagePopup.classList.remove('hidden');
+          }
+
+          if (narrative) {
+            narrative.innerHTML = `
+              <span class="text-slate-300 font-bold">🛡️ 아쉽게도 선생님몬이 공격을 피하거나 방어했습니다!</span><br/>
+              <span class="text-amber-300">공격 실패로 7일 쿨타임이 걸리지 않았습니다! (+${effortHappy} 노력 해피 획득, 내일 다시 도전!)</span>
+            `;
+          }
+
+          saveState();
+          renderRaidUI();
+          if (activeStudent && activeStudent.id === currentStudent.id) {
+            renderStudentView(currentStudent.id);
+          }
+          return;
+        }
+
+        // Success Hit!
+        if (monsterBox) monsterBox.classList.add('translate-x-2', 'brightness-125');
         if (isCrit) {
           soundManager.playCrit();
         } else {
@@ -3822,6 +4068,10 @@
         const newHp = Math.max(0, prevHp - damage);
         appState.teacherMonster.currentHp = newHp;
         currentStudent.lastRaidDate = today;
+        // 7-day cooldown triggered on successful hit!
+        if (repData) {
+          repData.lastRaidSuccessDate = today;
+        }
 
         const bonusHappy = 15;
         currentStudent.happy = (currentStudent.happy || 0) + bonusHappy;
@@ -3833,9 +4083,10 @@
         appState.teacherMonster.logs.unshift({
           studentId: currentStudent.id,
           studentName: currentStudent.name,
-          pokeName: repPoke.name,
+          pokeName: repPoke ? repPoke.name : '포켓몬',
           damage: damage,
           isCrit: isCrit,
+          isMiss: false,
           date: today,
           time: timeStr
         });
@@ -3843,6 +4094,7 @@
         // Show floating damage
         if (damagePopup) {
           damagePopup.textContent = (isCrit ? '🔥 크리티컬! ' : '💥 ') + `-${damage} HP!`;
+          damagePopup.className = 'absolute -top-6 left-1/2 -translate-x-1/2 bg-rose-600 text-white font-jua text-sm sm:text-base px-3 py-1 rounded-full shadow-lg border border-amber-300 animate-bounce whitespace-nowrap z-20';
           damagePopup.classList.remove('hidden');
         }
 
@@ -3854,18 +4106,19 @@
         if (newHp === 0) {
           soundManager.playFanfare(true);
           if (clearBox) clearBox.classList.remove('hidden');
-          if (clearRewardText) clearRewardText.textContent = appState.teacherMonster.reward || '학급 요리 시간';
+          if (clearRewardText) clearRewardText.textContent = appState.teacherMonster.reward || '학급 요리 시간 & 파티';
           if (narrative) {
             narrative.innerHTML = `
               <span class="text-amber-300 font-bold text-base">🎉 축하합니다! 선생님몬을 완전히 격파했습니다!</span><br/>
-              <span class="text-white">약속된 보상 [${appState.teacherMonster.reward || '학급 요리 시간'}] 획득! (+${bonusHappy} 해피 지급)</span>
+              <span class="text-white">약속된 보상 [${appState.teacherMonster.reward || '학급 요리 시간 & 파티'}] 획득! (+${bonusHappy} 해피 지급)</span>
             `;
           }
         } else {
           if (narrative) {
             narrative.innerHTML = `
-              <span class="text-teal-300 font-bold">${currentStudent.name}</span> 학생의 <span class="text-amber-300 font-bold">${repPoke.name}</span>(이)가 <span class="text-rose-400 font-bold">${damage} 데미지</span>를 입혔습니다!<br/>
-              <span class="text-emerald-300">협동 기여 보너스 +${bonusHappy} 해피 획득! 🪙 (남은 HP: ${newHp.toLocaleString()})</span>
+              <span class="text-teal-300 font-bold">${currentStudent.name}</span> 학생의 <span class="text-amber-300 font-bold">${repPoke ? repPoke.name : '포켓몬'}</span>(이)가 <span class="text-rose-400 font-bold">${damage} 데미지</span>를 입혔습니다!<br/>
+              <span class="text-emerald-300">협동 기여 보너스 +${bonusHappy} 해피! 🪙 (남은 HP: ${newHp.toLocaleString()})</span><br/>
+              <span class="text-xs text-amber-300/90 font-sans">⚡ ${repPoke ? repPoke.name : '포켓몬'}은(는) 공격 성공으로 7일간 휴식(쿨타임)에 들어갑니다.</span>
             `;
           }
         }
@@ -3884,17 +4137,56 @@
       const damagePopup = document.getElementById('battleDamagePopup');
       if (damagePopup) damagePopup.classList.add('hidden');
       const monsterBox = document.getElementById('battleMonsterBox');
-      if (monsterBox) monsterBox.classList.remove('translate-x-2', 'brightness-125');
+      if (monsterBox) monsterBox.classList.remove('translate-x-2', 'brightness-125', 'scale-110');
     }
 
     /* Teacher Raid Management Modal Functions */
+    function updateModalRaidHpUI(feedbackMsg, feedbackColorClass) {
+      if (!appState.teacherMonster) return;
+      const tm = appState.teacherMonster;
+      const maxHp = tm.maxHp || 10000;
+      const curHp = Math.max(0, Math.min(maxHp, tm.currentHp !== undefined ? tm.currentHp : maxHp));
+      const hpPercent = Math.max(0, Math.min(100, Math.round((curHp / maxHp) * 100)));
+
+      const display = document.getElementById('modalRaidHpDisplay');
+      if (display) display.textContent = `${curHp.toLocaleString()} / ${maxHp.toLocaleString()} HP`;
+
+      const bar = document.getElementById('modalRaidHpBar');
+      if (bar) {
+        bar.style.width = `${hpPercent}%`;
+        if (hpPercent <= 25) {
+          bar.className = "h-full bg-gradient-to-r from-rose-600 to-red-500 rounded-full transition-all duration-300";
+        } else if (hpPercent <= 50) {
+          bar.className = "h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full transition-all duration-300";
+        } else {
+          bar.className = "h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-300";
+        }
+      }
+
+      const badge = document.getElementById('modalRaidHpPercentBadge');
+      if (badge) {
+        badge.textContent = curHp <= 0 ? '격파 완료 🏆' : `체력 ${hpPercent}%`;
+        badge.className = curHp <= 0 
+          ? 'text-xs font-mono px-2.5 py-0.5 rounded-full bg-amber-400 text-slate-950 font-bold animate-bounce'
+          : (hpPercent <= 25 
+              ? 'text-xs font-mono px-2.5 py-0.5 rounded-full bg-rose-950 text-rose-300 border border-rose-500/40 font-bold'
+              : 'text-xs font-mono px-2.5 py-0.5 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-500/40 font-bold');
+      }
+
+      const feedback = document.getElementById('modalRaidFeedback');
+      if (feedback && feedbackMsg) {
+        feedback.textContent = feedbackMsg;
+        feedback.className = `text-xs font-jua text-center min-h-[18px] transition-all ${feedbackColorClass || 'text-slate-300'}`;
+      }
+    }
+
     function openRaidManageModal() {
       if (!appState.teacherMonster) {
         appState.teacherMonster = {
           name: '선생님몬',
-          maxHp: 2000,
-          currentHp: 2000,
-          reward: '학급 요리 시간',
+          maxHp: 10000,
+          currentHp: 10000,
+          reward: '학급 요리 시간 & 파티',
           logs: []
         };
       }
@@ -3906,8 +4198,10 @@
       const leaderboardList = document.getElementById('raidLeaderboardList');
 
       if (inputName) inputName.value = tm.name || '선생님몬';
-      if (inputMaxHp) inputMaxHp.value = tm.maxHp || 2000;
-      if (inputReward) inputReward.value = tm.reward || '학급 요리 시간';
+      if (inputMaxHp) inputMaxHp.value = tm.maxHp || 10000;
+      if (inputReward) inputReward.value = tm.reward || '학급 요리 시간 & 파티';
+
+      updateModalRaidHpUI('체력 조정 및 설정 변경이 즉시 반영됩니다.', 'text-slate-400');
 
       const logs = Array.isArray(tm.logs) ? tm.logs : [];
       if (attacksCount) attacksCount.textContent = `총 ${logs.length}회 공격`;
@@ -3971,8 +4265,8 @@
     function saveRaidSettings() {
       if (!appState.teacherMonster) appState.teacherMonster = {};
       const name = document.getElementById('settingRaidMonsterName').value.trim() || '선생님몬';
-      const maxHp = parseInt(document.getElementById('settingRaidMaxHp').value) || 2000;
-      const reward = document.getElementById('settingRaidRewardGoal').value.trim() || '학급 요리 시간';
+      const maxHp = parseInt(document.getElementById('settingRaidMaxHp').value) || 10000;
+      const reward = document.getElementById('settingRaidRewardGoal').value.trim() || '학급 요리 시간 & 파티';
 
       appState.teacherMonster.name = name;
       appState.teacherMonster.maxHp = maxHp;
@@ -3983,28 +4277,34 @@
 
       saveState();
       renderRaidUI();
+      updateModalRaidHpUI('✅ 미션 설정이 저장되었습니다!', 'text-emerald-400');
       showToast('✅ 선생님몬 미션 설정이 저장되었습니다!');
     }
 
     function resetRaidHp() {
       if (!confirm('선생님몬의 체력을 100% 최대로 회복하여 새 시즌을 시작하시겠습니까?\n(학생들의 누적 공격 기록은 보존됩니다)')) return;
       if (!appState.teacherMonster) appState.teacherMonster = {};
-      appState.teacherMonster.currentHp = appState.teacherMonster.maxHp || 2000;
+      const maxHp = appState.teacherMonster.maxHp || 10000;
+      appState.teacherMonster.currentHp = maxHp;
       saveState();
       renderRaidUI();
-      openRaidManageModal();
+      updateModalRaidHpUI(`🔄 체력이 ${maxHp.toLocaleString()} HP (100%)로 완전 회복되었습니다!`, 'text-emerald-300');
       showToast('🔄 선생님몬 체력이 100% 회복되었습니다! 새 미션 시작!');
     }
 
     function adjustRaidHp(delta) {
       if (!appState.teacherMonster) appState.teacherMonster = {};
-      const maxHp = appState.teacherMonster.maxHp || 2000;
+      const maxHp = appState.teacherMonster.maxHp || 10000;
       const curHp = appState.teacherMonster.currentHp !== undefined ? appState.teacherMonster.currentHp : maxHp;
-      appState.teacherMonster.currentHp = Math.max(0, Math.min(maxHp, curHp + delta));
+      const nextHp = Math.max(0, Math.min(maxHp, curHp + delta));
+      appState.teacherMonster.currentHp = nextHp;
       saveState();
       renderRaidUI();
-      openRaidManageModal();
-      showToast(`체력 조정: ${appState.teacherMonster.currentHp} / ${maxHp} HP`);
+      const msg = delta < 0 
+        ? `💥 체력 ${Math.abs(delta).toLocaleString()} HP 차감됨! (현재: ${nextHp.toLocaleString()} HP)`
+        : `✨ 체력 ${delta.toLocaleString()} HP 회복됨! (현재: ${nextHp.toLocaleString()} HP)`;
+      updateModalRaidHpUI(msg, delta < 0 ? 'text-rose-400' : 'text-teal-300');
+      showToast(`체력 조정: ${nextHp.toLocaleString()} / ${maxHp.toLocaleString()} HP`);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
