@@ -5,22 +5,22 @@ with open('/Users/macbook/Documents/antigravity/pocketmon/pokemon_data.json', 'r
 
 # Initial students with default passwords and daily checkin date tracking
 initial_students = [
-    {"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "happy": 150, "pendingBalls": 1, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "happy": 150, "pendingBalls": 1, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
 ]
 
 html_template = """<!DOCTYPE html>
@@ -292,6 +292,11 @@ html_template = """<!DOCTYPE html>
           <button onclick="openManageModal()" class="bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-200 border border-slate-700 px-3 py-2 rounded-xl transition shadow text-xs sm:text-sm font-medium flex items-center gap-1">
             <span>⚙️</span>
             <span class="hidden sm:inline">명단/포인트 규칙</span>
+          </button>
+
+          <button onclick="openResetModal()" class="bg-rose-950/60 hover:bg-rose-900/80 border border-rose-600/70 text-rose-200 active:scale-95 px-3 py-2 rounded-xl transition shadow text-xs sm:text-sm font-jua flex items-center gap-1" title="학급 볼 회수 및 데이터 초기화">
+            <span>🔄</span>
+            <span class="hidden sm:inline">학급 리셋</span>
           </button>
 
           <button onclick="logout()" class="bg-rose-900/40 hover:bg-rose-800/60 border border-rose-700 text-rose-200 px-3 py-2 rounded-xl transition text-xs font-jua">
@@ -775,12 +780,13 @@ html_template = """<!DOCTYPE html>
       </div>
 
       <div id="rouletteWinnerBtns" class="hidden flex-col gap-2.5 w-full">
-        <button onclick="saveWinnerBallOnly()" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-jua text-sm sm:text-base shadow-lg transition active:scale-95 flex items-center justify-center gap-2">
-          <span class="mini-ball"></span>
-          <span>수업 후 뽑기로 몬스터볼 적립 (+1)</span>
+        <button onclick="saveWinnerBallAndSpinNext()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-jua text-base shadow-lg transition active:scale-95 flex items-center justify-center gap-2">
+          <span>🎲</span>
+          <span>저장하고 이어서 다음 발표자 추첨! 🚀</span>
         </button>
-        <button onclick="openWinnerGachaNow()" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-jua text-sm shadow transition active:scale-95">
-          지금 바로 포켓몬 뽑기! ✨
+        <button onclick="saveWinnerBallOnly()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-jua text-sm shadow transition active:scale-95 flex items-center justify-center gap-2">
+          <span>💾</span>
+          <span>저장하고 추첨 종료 (닫기)</span>
         </button>
       </div>
     </div>
@@ -944,6 +950,77 @@ html_template = """<!DOCTYPE html>
 
       <div class="p-4 bg-slate-800/50 border-t border-slate-700 flex justify-end">
         <button onclick="closeManageModal()" class="px-5 py-2 rounded-xl bg-slate-700 hover:bg-slate-600 text-white font-medium text-xs transition">
+          닫기
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reset Modal for Teacher -->
+  <div id="resetModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity duration-200">
+    <div class="bg-slate-900 text-white border-2 border-rose-500/60 rounded-3xl w-full max-w-lg p-6 shadow-2xl relative animate-card-pop">
+      <button onclick="closeResetModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sm font-bold transition">
+        ✕
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-2xl">
+          🔄
+        </div>
+        <div>
+          <h3 class="text-xl font-jua text-white">학급 데이터 관리 및 리셋</h3>
+          <p class="text-xs text-slate-400">원하시는 리셋 항목을 선택하세요. (클라우드에도 즉시 반영됩니다)</p>
+        </div>
+      </div>
+
+      <div class="space-y-3 mb-5">
+        <!-- Option 1: 미개봉 볼만 전체 0으로 리셋 -->
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700/80 flex items-center justify-between gap-3">
+          <div>
+            <h4 class="font-jua text-rose-300 text-sm">🔴 미개봉 볼 전체 회수/리셋</h4>
+            <p class="text-[11px] text-slate-400">모든 학생의 아직 안 연 볼을 0개로 회수합니다. (발표수/도감 유지)</p>
+          </div>
+          <button onclick="resetPendingBallsOnly()" class="px-3.5 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-xl text-xs font-jua transition whitespace-nowrap active:scale-95 shadow">
+            볼만 리셋
+          </button>
+        </div>
+
+        <!-- Option 2: 발표 횟수 & 오늘 기록 리셋 -->
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700/80 flex items-center justify-between gap-3">
+          <div>
+            <h4 class="font-jua text-amber-300 text-sm">✨ 발표 횟수 & 오늘 기록 리셋</h4>
+            <p class="text-[11px] text-slate-400">발표 횟수와 오늘 발표 체크인 내역을 0으로 리셋합니다.</p>
+          </div>
+          <button onclick="resetPresentationCountsOnly()" class="px-3.5 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-jua transition whitespace-nowrap active:scale-95 shadow">
+            발표수 리셋
+          </button>
+        </div>
+
+        <!-- Option 3: 해피포인트 전체 0 리셋 -->
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700/80 flex items-center justify-between gap-3">
+          <div>
+            <h4 class="font-jua text-yellow-300 text-sm">🪙 해피포인트 전체 0 리셋</h4>
+            <p class="text-[11px] text-slate-400">모든 학생의 보유 해피포인트를 0으로 리셋합니다.</p>
+          </div>
+          <button onclick="resetHappyPointsOnly()" class="px-3.5 py-2 bg-yellow-600 hover:bg-yellow-500 text-slate-950 font-jua text-xs rounded-xl transition whitespace-nowrap active:scale-95 shadow">
+            포인트 리셋
+          </button>
+        </div>
+
+        <!-- Option 4: 학급 데이터 완전 초기화 (새 학기 시작) -->
+        <div class="p-3.5 bg-rose-950/40 rounded-2xl border border-rose-500/40 flex items-center justify-between gap-3">
+          <div>
+            <h4 class="font-jua text-red-400 text-sm">⚠️ 학급 전체 데이터 완전 초기화 (새 학기)</h4>
+            <p class="text-[11px] text-slate-400">발표수, 볼, 해피, 도감, 대표포켓몬 모두 0으로 완전 초기화합니다.</p>
+          </div>
+          <button onclick="resetAllDataConfirm()" class="px-3.5 py-2 bg-red-700 hover:bg-red-600 text-white rounded-xl text-xs font-jua transition whitespace-nowrap active:scale-95 shadow">
+            전체 초기화
+          </button>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button onclick="closeResetModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded-xl font-jua transition">
           닫기
         </button>
       </div>
@@ -1330,6 +1407,18 @@ html_template = """<!DOCTYPE html>
             s.representativePokeId = null;
           }
         });
+      }
+
+      // One-time cleanup for mock balls on students 1 and 2 if count is 0
+      if (!localStorage.getItem('pocketmon_balls_reset_v3')) {
+        appState.students.forEach(s => {
+          if (s.count === 0 && (!s.collected || Object.keys(s.collected).length === 0)) {
+            s.pendingBalls = 0;
+            s.happy = 0;
+          }
+        });
+        localStorage.setItem('pocketmon_balls_reset_v3', 'true');
+        saveState();
       }
 
       // Check daily date rollover & award daily happy points
@@ -2392,19 +2481,31 @@ html_template = """<!DOCTYPE html>
       showToast(`'${winner.name}' 학생에게 몬스터볼이 저장되었습니다! (+1 볼, +${bonus} 해피) 🔴`);
     }
 
-    function openWinnerGachaNow() {
+    function saveWinnerBallAndSpinNext() {
       if (!rouletteWinner) return;
       const winner = rouletteWinner;
-      closeRouletteModal();
-
       const bonus = appState.presentHappyBonus || 15;
       winner.count = (winner.count || 0) + 1;
+      winner.pendingBalls = (winner.pendingBalls || 0) + 1;
       winner.happy = (winner.happy || 0) + bonus;
       winner.todayLog = 'random';
 
+      soundManager.playBallAward();
       saveState();
       renderStudentGrid();
-      launchGachaForStudent(winner);
+      showToast(`'${winner.name}' 학생 몬스터볼 저장 완료! (+1 볼, +${bonus} 해피)`);
+
+      // Switch back to roulette ready state and spin immediately!
+      const initialBtns = document.getElementById('rouletteInitialBtns');
+      const winnerBtns = document.getElementById('rouletteWinnerBtns');
+      winnerBtns.classList.add('hidden');
+      initialBtns.classList.remove('hidden');
+      document.getElementById('rouletteNumberBadge').textContent = '준비';
+      document.getElementById('rouletteNameDisplay').textContent = '추첨 준비 중...';
+      
+      setTimeout(() => {
+        startRouletteSpin();
+      }, 400);
     }
 
     /* ==================== SETTINGS & MANAGEMENT ==================== */
@@ -2484,7 +2585,12 @@ html_template = """<!DOCTYPE html>
             <span class="text-xs text-amber-300 font-mono bg-slate-800 px-2 py-0.5 rounded border border-slate-700">비번: ${student.password || '0000'}</span>
             <span class="text-xs text-slate-400">(발표 ${student.count || 0}회, 🪙 ${student.happy || 0} 해피, 🔴 볼 ${student.pendingBalls || 0}개, 👑 대표: ${repName})</span>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 flex-wrap">
+            <div class="flex items-center border border-slate-700 rounded-lg overflow-hidden bg-slate-800">
+              <button onclick="adjustStudentBalls(${student.id}, -1)" class="px-2 py-1 text-rose-300 hover:bg-slate-700 text-xs font-bold transition active:scale-95" title="볼 1개 차감">-1볼</button>
+              <button onclick="adjustStudentBalls(${student.id}, 1)" class="px-2 py-1 text-emerald-300 hover:bg-slate-700 text-xs font-bold border-l border-slate-700 transition active:scale-95" title="볼 1개 지급">+1볼</button>
+            </div>
+            <button onclick="resetSingleStudentBalls(${student.id})" class="text-xs text-rose-400 hover:text-rose-300 bg-slate-800 hover:bg-slate-700 px-2 py-1 rounded border border-slate-700 transition" title="이 학생의 볼만 0개로 리셋">볼리셋</button>
             <button onclick="editStudentPasswordPrompt(${student.id})" class="text-xs text-amber-300 hover:text-amber-200 bg-slate-800 px-2 py-1 rounded transition">비번 수정</button>
             <button onclick="editStudentPrompt(${student.id})" class="text-xs text-slate-300 hover:text-white bg-slate-800 px-2 py-1 rounded transition">이름 수정</button>
             <button onclick="deleteStudent(${student.id})" class="text-xs text-red-400 hover:text-red-300 bg-slate-800 px-2 py-1 rounded transition">삭제</button>
@@ -2521,7 +2627,7 @@ html_template = """<!DOCTYPE html>
         name: name.trim(),
         password: String(nextNum).padStart(4, '0'),
         count: 0,
-        happy: 150,
+        happy: 0,
         pendingBalls: 0,
         representativePokeId: null,
         todayLog: null,
@@ -2596,23 +2702,96 @@ html_template = """<!DOCTYPE html>
       event.target.value = '';
     }
 
-    function resetAllDataConfirm() {
-      if (confirm('정말로 모든 발표 기록과 도감 수집 데이터를 0으로 초기화하시겠습니까?\\n(학생 명단 및 비밀번호는 유지됩니다)')) {
+    /* ==================== RESET MANAGEMENT FUNCTIONS ==================== */
+    function openResetModal() {
+      document.getElementById('resetModal').classList.remove('hidden');
+    }
+    function closeResetModal() {
+      document.getElementById('resetModal').classList.add('hidden');
+    }
+
+    function resetPendingBallsOnly() {
+      if (confirm('모든 학생이 보유한 미개봉 몬스터볼을 0개로 회수/리셋하시겠습니까?\\n(발표 횟수나 뽑은 포켓몬 도감은 안전하게 유지됩니다)')) {
         appState.students.forEach(s => {
-          s.count = 0;
-          s.happy = 150;
           s.pendingBalls = 0;
-          s.representativePokeId = null;
-          s.todayLog = null;
-          s.lastAttendance = "";
-          s.trainedToday = false;
-          s.collected = {};
         });
         saveState();
         renderStudentGrid();
         renderManageStudentList();
-        alert('모든 발표 및 도감 기록이 초기화되었습니다.');
+        closeResetModal();
+        showToast('🔴 모든 학생의 미개봉 볼이 0개로 리셋되었습니다.');
       }
+    }
+
+    function resetPresentationCountsOnly() {
+      if (confirm('모든 학생의 발표 횟수를 0으로 리셋하시겠습니까?\\n(보유한 포켓몬 도감과 해피포인트는 유지됩니다)')) {
+        appState.students.forEach(s => {
+          s.count = 0;
+          s.todayLog = null;
+        });
+        saveState();
+        renderStudentGrid();
+        renderManageStudentList();
+        closeResetModal();
+        showToast('✨ 모든 발표 횟수가 0으로 리셋되었습니다.');
+      }
+    }
+
+    function resetHappyPointsOnly() {
+      if (confirm('모든 학생의 해피포인트를 0으로 리셋하시겠습니까?')) {
+        appState.students.forEach(s => {
+          s.happy = 0;
+        });
+        saveState();
+        renderStudentGrid();
+        renderManageStudentList();
+        closeResetModal();
+        showToast('🪙 모든 학생의 해피포인트가 0으로 리셋되었습니다.');
+      }
+    }
+
+    function resetAllDataConfirm() {
+      const pw = prompt('⚠️ 경고: 모든 학생의 발표 횟수, 몬스터볼, 해피포인트, 도감 수집 데이터를 완전히 초기화합니다.\\n\\n진행하시려면 선생님 비밀번호를 입력하세요:');
+      if (pw === null) return;
+      if (pw !== appState.teacherPassword) {
+        alert('선생님 비밀번호가 일치하지 않습니다.');
+        return;
+      }
+      appState.students.forEach(s => {
+        s.count = 0;
+        s.happy = 0;
+        s.pendingBalls = 0;
+        s.representativePokeId = null;
+        s.todayLog = null;
+        s.lastAttendance = "";
+        s.trainedToday = false;
+        s.collected = {};
+      });
+      saveState();
+      renderStudentGrid();
+      renderManageStudentList();
+      closeResetModal();
+      alert('🎉 학급의 모든 발표, 볼, 도감 데이터가 0으로 초기화되었습니다! (새 학기 시작)');
+    }
+
+    function adjustStudentBalls(studentId, delta) {
+      const student = appState.students.find(s => s.id === studentId);
+      if (!student) return;
+      student.pendingBalls = Math.max(0, (student.pendingBalls || 0) + delta);
+      saveState();
+      renderStudentGrid();
+      renderManageStudentList();
+      showToast(`${student.name} 학생의 볼: ${student.pendingBalls}개`);
+    }
+
+    function resetSingleStudentBalls(studentId) {
+      const student = appState.students.find(s => s.id === studentId);
+      if (!student) return;
+      student.pendingBalls = 0;
+      saveState();
+      renderStudentGrid();
+      renderManageStudentList();
+      showToast(`${student.name} 학생의 볼이 0개로 리셋되었습니다.`);
     }
 
     window.addEventListener('DOMContentLoaded', () => {

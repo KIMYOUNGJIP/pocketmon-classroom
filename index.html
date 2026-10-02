@@ -269,6 +269,11 @@
             <span class="hidden sm:inline">명단/포인트 규칙</span>
           </button>
 
+          <button onclick="openResetModal()" class="bg-rose-950/60 hover:bg-rose-900/80 border border-rose-600/70 text-rose-200 active:scale-95 px-3 py-2 rounded-xl transition shadow text-xs sm:text-sm font-jua flex items-center gap-1" title="학급 볼 회수 및 데이터 초기화">
+            <span>🔄</span>
+            <span class="hidden sm:inline">학급 리셋</span>
+          </button>
+
           <button onclick="logout()" class="bg-rose-900/40 hover:bg-rose-800/60 border border-rose-700 text-rose-200 px-3 py-2 rounded-xl transition text-xs font-jua">
             로그아웃
           </button>
@@ -750,12 +755,13 @@
       </div>
 
       <div id="rouletteWinnerBtns" class="hidden flex-col gap-2.5 w-full">
-        <button onclick="saveWinnerBallOnly()" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-jua text-sm sm:text-base shadow-lg transition active:scale-95 flex items-center justify-center gap-2">
-          <span class="mini-ball"></span>
-          <span>수업 후 뽑기로 몬스터볼 적립 (+1)</span>
+        <button onclick="saveWinnerBallAndSpinNext()" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-jua text-base shadow-lg transition active:scale-95 flex items-center justify-center gap-2">
+          <span>🎲</span>
+          <span>저장하고 이어서 다음 발표자 추첨! 🚀</span>
         </button>
-        <button onclick="openWinnerGachaNow()" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-jua text-sm shadow transition active:scale-95">
-          지금 바로 포켓몬 뽑기! ✨
+        <button onclick="saveWinnerBallOnly()" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-jua text-sm shadow transition active:scale-95 flex items-center justify-center gap-2">
+          <span>💾</span>
+          <span>저장하고 추첨 종료 (닫기)</span>
         </button>
       </div>
     </div>
@@ -925,6 +931,77 @@
     </div>
   </div>
 
+  <!-- Reset Modal for Teacher -->
+  <div id="resetModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity duration-200">
+    <div class="bg-slate-900 text-white border-2 border-rose-500/60 rounded-3xl w-full max-w-lg p-6 shadow-2xl relative animate-card-pop">
+      <button onclick="closeResetModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sm font-bold transition">
+        ✕
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-500/40 flex items-center justify-center text-2xl">
+          🔄
+        </div>
+        <div>
+          <h3 class="text-xl font-jua text-white">학급 데이터 관리 및 리셋</h3>
+          <p class="text-xs text-slate-400">원하시는 리셋 항목을 선택하세요. (클라우드에도 즉시 반영됩니다)</p>
+        </div>
+      </div>
+
+      <div class="space-y-3 mb-5">
+        <!-- Option 1: 미개봉 볼만 전체 0으로 리셋 -->
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700/80 flex items-center justify-between gap-3">
+          <div>
+            <h4 class="font-jua text-rose-300 text-sm">🔴 미개봉 볼 전체 회수/리셋</h4>
+            <p class="text-[11px] text-slate-400">모든 학생의 아직 안 연 볼을 0개로 회수합니다. (발표수/도감 유지)</p>
+          </div>
+          <button onclick="resetPendingBallsOnly()" class="px-3.5 py-2 bg-rose-600 hover:bg-rose-500 text-white rounded-xl text-xs font-jua transition whitespace-nowrap active:scale-95 shadow">
+            볼만 리셋
+          </button>
+        </div>
+
+        <!-- Option 2: 발표 횟수 & 오늘 기록 리셋 -->
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700/80 flex items-center justify-between gap-3">
+          <div>
+            <h4 class="font-jua text-amber-300 text-sm">✨ 발표 횟수 & 오늘 기록 리셋</h4>
+            <p class="text-[11px] text-slate-400">발표 횟수와 오늘 발표 체크인 내역을 0으로 리셋합니다.</p>
+          </div>
+          <button onclick="resetPresentationCountsOnly()" class="px-3.5 py-2 bg-amber-600 hover:bg-amber-500 text-white rounded-xl text-xs font-jua transition whitespace-nowrap active:scale-95 shadow">
+            발표수 리셋
+          </button>
+        </div>
+
+        <!-- Option 3: 해피포인트 전체 0 리셋 -->
+        <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700/80 flex items-center justify-between gap-3">
+          <div>
+            <h4 class="font-jua text-yellow-300 text-sm">🪙 해피포인트 전체 0 리셋</h4>
+            <p class="text-[11px] text-slate-400">모든 학생의 보유 해피포인트를 0으로 리셋합니다.</p>
+          </div>
+          <button onclick="resetHappyPointsOnly()" class="px-3.5 py-2 bg-yellow-600 hover:bg-yellow-500 text-slate-950 font-jua text-xs rounded-xl transition whitespace-nowrap active:scale-95 shadow">
+            포인트 리셋
+          </button>
+        </div>
+
+        <!-- Option 4: 학급 데이터 완전 초기화 (새 학기 시작) -->
+        <div class="p-3.5 bg-rose-950/40 rounded-2xl border border-rose-500/40 flex items-center justify-between gap-3">
+          <div>
+            <h4 class="font-jua text-red-400 text-sm">⚠️ 학급 전체 데이터 완전 초기화 (새 학기)</h4>
+            <p class="text-[11px] text-slate-400">발표수, 볼, 해피, 도감, 대표포켓몬 모두 0으로 완전 초기화합니다.</p>
+          </div>
+          <button onclick="resetAllDataConfirm()" class="px-3.5 py-2 bg-red-700 hover:bg-red-600 text-white rounded-xl text-xs font-jua transition whitespace-nowrap active:scale-95 shadow">
+            전체 초기화
+          </button>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button onclick="closeResetModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded-xl font-jua transition">
+          닫기
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- JAVASCRIPT APPLICATION LOGIC -->
   <script>
     const POKEMON_DATA = [{"id": 1, "name": "이상해씨", "enName": "Bulbasaur", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"}, {"id": 2, "name": "이상해풀", "enName": "Ivysaur", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png"}, {"id": 3, "name": "이상해꽃", "enName": "Venusaur", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png"}, {"id": 4, "name": "파이리", "enName": "Charmander", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png"}, {"id": 5, "name": "리자드", "enName": "Charmeleon", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/5.png"}, {"id": 6, "name": "리자몽", "enName": "Charizard", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png"}, {"id": 7, "name": "꼬부기", "enName": "Squirtle", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png"}, {"id": 8, "name": "어니부기", "enName": "Wartortle", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png"}, {"id": 9, "name": "거북왕", "enName": "Blastoise", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png"}, {"id": 10, "name": "캐터피", "enName": "Caterpie", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10.png"}, {"id": 11, "name": "단데기", "enName": "Metapod", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png"}, {"id": 12, "name": "버터플", "enName": "Butterfree", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/12.png"}, {"id": 13, "name": "뿔충이", "enName": "Weedle", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/13.png"}, {"id": 14, "name": "딱충이", "enName": "Kakuna", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/14.png"}, {"id": 15, "name": "독침붕", "enName": "Beedrill", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/15.png"}, {"id": 16, "name": "구구", "enName": "Pidgey", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/16.png"}, {"id": 17, "name": "피죤", "enName": "Pidgeotto", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/17.png"}, {"id": 18, "name": "피죤투", "enName": "Pidgeot", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/18.png"}, {"id": 19, "name": "꼬렛", "enName": "Rattata", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png"}, {"id": 20, "name": "레트라", "enName": "Raticate", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/20.png"}, {"id": 21, "name": "깨비참", "enName": "Spearow", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png"}, {"id": 22, "name": "깨비드릴조", "enName": "Fearow", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png"}, {"id": 23, "name": "아보", "enName": "Ekans", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png"}, {"id": 24, "name": "아보크", "enName": "Arbok", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/24.png"}, {"id": 25, "name": "피카츄", "enName": "Pikachu", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"}, {"id": 26, "name": "라이츄", "enName": "Raichu", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png"}, {"id": 27, "name": "모래두지", "enName": "Sandshrew", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png"}, {"id": 28, "name": "고지", "enName": "Sandslash", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png"}, {"id": 29, "name": "니드런♀", "enName": "Nidoran-f", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png"}, {"id": 30, "name": "니드리나", "enName": "Nidorina", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png"}, {"id": 31, "name": "니드퀸", "enName": "Nidoqueen", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png"}, {"id": 32, "name": "니드런♂", "enName": "Nidoran-m", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png"}, {"id": 33, "name": "니드리노", "enName": "Nidorino", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png"}, {"id": 34, "name": "니드킹", "enName": "Nidoking", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png"}, {"id": 35, "name": "삐삐", "enName": "Clefairy", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png"}, {"id": 36, "name": "픽시", "enName": "Clefable", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png"}, {"id": 37, "name": "식스테일", "enName": "Vulpix", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png"}, {"id": 38, "name": "나인테일", "enName": "Ninetales", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png"}, {"id": 39, "name": "푸린", "enName": "Jigglypuff", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png"}, {"id": 40, "name": "푸크린", "enName": "Wigglytuff", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png"}, {"id": 41, "name": "주뱃", "enName": "Zubat", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/41.png"}, {"id": 42, "name": "골뱃", "enName": "Golbat", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/42.png"}, {"id": 43, "name": "뚜벅쵸", "enName": "Oddish", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/43.png"}, {"id": 44, "name": "냄새꼬", "enName": "Gloom", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/44.png"}, {"id": 45, "name": "라플레시아", "enName": "Vileplume", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/45.png"}, {"id": 46, "name": "파라스", "enName": "Paras", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/46.png"}, {"id": 47, "name": "파라섹트", "enName": "Parasect", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/47.png"}, {"id": 48, "name": "콘팡", "enName": "Venonat", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/48.png"}, {"id": 49, "name": "도나리", "enName": "Venomoth", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/49.png"}, {"id": 50, "name": "디그다", "enName": "Diglett", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/50.png"}, {"id": 51, "name": "닥트리오", "enName": "Dugtrio", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/51.png"}, {"id": 52, "name": "나옹", "enName": "Meowth", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/52.png"}, {"id": 53, "name": "페르시온", "enName": "Persian", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/53.png"}, {"id": 54, "name": "고라파덕", "enName": "Psyduck", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/54.png"}, {"id": 55, "name": "골덕", "enName": "Golduck", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/55.png"}, {"id": 56, "name": "망키", "enName": "Mankey", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/56.png"}, {"id": 57, "name": "성원숭", "enName": "Primeape", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/57.png"}, {"id": 58, "name": "가디", "enName": "Growlithe", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/58.png"}, {"id": 59, "name": "윈디", "enName": "Arcanine", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/59.png"}, {"id": 60, "name": "발챙이", "enName": "Poliwag", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/60.png"}, {"id": 61, "name": "슈륙챙이", "enName": "Poliwhirl", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/61.png"}, {"id": 62, "name": "강챙이", "enName": "Poliwrath", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/62.png"}, {"id": 63, "name": "캐이시", "enName": "Abra", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/63.png"}, {"id": 64, "name": "윤겔라", "enName": "Kadabra", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/64.png"}, {"id": 65, "name": "후딘", "enName": "Alakazam", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png"}, {"id": 66, "name": "알통몬", "enName": "Machop", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/66.png"}, {"id": 67, "name": "근육몬", "enName": "Machoke", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/67.png"}, {"id": 68, "name": "괴력몬", "enName": "Machamp", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/68.png"}, {"id": 69, "name": "모다피", "enName": "Bellsprout", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/69.png"}, {"id": 70, "name": "우츠동", "enName": "Weepinbell", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/70.png"}, {"id": 71, "name": "우츠보트", "enName": "Victreebel", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/71.png"}, {"id": 72, "name": "왕눈해", "enName": "Tentacool", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/72.png"}, {"id": 73, "name": "독파리", "enName": "Tentacruel", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/73.png"}, {"id": 74, "name": "꼬마돌", "enName": "Geodude", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/74.png"}, {"id": 75, "name": "데구리", "enName": "Graveler", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/75.png"}, {"id": 76, "name": "딱구리", "enName": "Golem", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/76.png"}, {"id": 77, "name": "포니타", "enName": "Ponyta", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/77.png"}, {"id": 78, "name": "날쌩마", "enName": "Rapidash", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/78.png"}, {"id": 79, "name": "야돈", "enName": "Slowpoke", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/79.png"}, {"id": 80, "name": "야도란", "enName": "Slowbro", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png"}, {"id": 81, "name": "코일", "enName": "Magnemite", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/81.png"}, {"id": 82, "name": "레어코일", "enName": "Magneton", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/82.png"}, {"id": 83, "name": "파오리", "enName": "Farfetchd", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/83.png"}, {"id": 84, "name": "두두", "enName": "Doduo", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/84.png"}, {"id": 85, "name": "두트리오", "enName": "Dodrio", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/85.png"}, {"id": 86, "name": "쥬쥬", "enName": "Seel", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/86.png"}, {"id": 87, "name": "쥬레곤", "enName": "Dewgong", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png"}, {"id": 88, "name": "질퍽이", "enName": "Grimer", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/88.png"}, {"id": 89, "name": "질뻐기", "enName": "Muk", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/89.png"}, {"id": 90, "name": "셀러", "enName": "Shellder", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/90.png"}, {"id": 91, "name": "파르셀", "enName": "Cloyster", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/91.png"}, {"id": 92, "name": "고오스", "enName": "Gastly", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/92.png"}, {"id": 93, "name": "고우스트", "enName": "Haunter", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/93.png"}, {"id": 94, "name": "팬텀", "enName": "Gengar", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png"}, {"id": 95, "name": "롱스톤", "enName": "Onix", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/95.png"}, {"id": 96, "name": "슬리프", "enName": "Drowzee", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/96.png"}, {"id": 97, "name": "슬리퍼", "enName": "Hypno", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/97.png"}, {"id": 98, "name": "크랩", "enName": "Krabby", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/98.png"}, {"id": 99, "name": "킹크랩", "enName": "Kingler", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/99.png"}, {"id": 100, "name": "찌리리공", "enName": "Voltorb", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/100.png"}, {"id": 101, "name": "붐볼", "enName": "Electrode", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/101.png"}, {"id": 102, "name": "아라리", "enName": "Exeggcute", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/102.png"}, {"id": 103, "name": "나시", "enName": "Exeggutor", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/103.png"}, {"id": 104, "name": "탕구리", "enName": "Cubone", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/104.png"}, {"id": 105, "name": "텅구리", "enName": "Marowak", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/105.png"}, {"id": 106, "name": "시라소몬", "enName": "Hitmonlee", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/106.png"}, {"id": 107, "name": "홍수몬", "enName": "Hitmonchan", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/107.png"}, {"id": 108, "name": "내루미", "enName": "Lickitung", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/108.png"}, {"id": 109, "name": "또가스", "enName": "Koffing", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png"}, {"id": 110, "name": "또도가스", "enName": "Weezing", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/110.png"}, {"id": 111, "name": "뿔카노", "enName": "Rhyhorn", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/111.png"}, {"id": 112, "name": "코뿌리", "enName": "Rhydon", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/112.png"}, {"id": 113, "name": "럭키", "enName": "Chansey", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/113.png"}, {"id": 114, "name": "덩쿠리", "enName": "Tangela", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/114.png"}, {"id": 115, "name": "캥카", "enName": "Kangaskhan", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/115.png"}, {"id": 116, "name": "쏘드라", "enName": "Horsea", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png"}, {"id": 117, "name": "시드라", "enName": "Seadra", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/117.png"}, {"id": 118, "name": "콘치", "enName": "Goldeen", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/118.png"}, {"id": 119, "name": "왕콘치", "enName": "Seaking", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/119.png"}, {"id": 120, "name": "별가사리", "enName": "Staryu", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/120.png"}, {"id": 121, "name": "아쿠스타", "enName": "Starmie", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/121.png"}, {"id": 122, "name": "마임맨", "enName": "Mr-mime", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/122.png"}, {"id": 123, "name": "스라크", "enName": "Scyther", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/123.png"}, {"id": 124, "name": "루주라", "enName": "Jynx", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/124.png"}, {"id": 125, "name": "에레브", "enName": "Electabuzz", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/125.png"}, {"id": 126, "name": "마그마", "enName": "Magmar", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/126.png"}, {"id": 127, "name": "쁘사이저", "enName": "Pinsir", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/127.png"}, {"id": 128, "name": "켄타로스", "enName": "Tauros", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/128.png"}, {"id": 129, "name": "잉어킹", "enName": "Magikarp", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/129.png"}, {"id": 130, "name": "갸라도스", "enName": "Gyarados", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/130.png"}, {"id": 131, "name": "라프라스", "enName": "Lapras", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/131.png"}, {"id": 132, "name": "메타몽", "enName": "Ditto", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png"}, {"id": 133, "name": "이브이", "enName": "Eevee", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/133.png"}, {"id": 134, "name": "샤미드", "enName": "Vaporeon", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/134.png"}, {"id": 135, "name": "쥬피썬더", "enName": "Jolteon", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/135.png"}, {"id": 136, "name": "부스터", "enName": "Flareon", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/136.png"}, {"id": 137, "name": "폴리곤", "enName": "Porygon", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/137.png"}, {"id": 138, "name": "암나이트", "enName": "Omanyte", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/138.png"}, {"id": 139, "name": "암스타", "enName": "Omastar", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/139.png"}, {"id": 140, "name": "투구", "enName": "Kabuto", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/140.png"}, {"id": 141, "name": "투구푸스", "enName": "Kabutops", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/141.png"}, {"id": 142, "name": "프테라", "enName": "Aerodactyl", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png"}, {"id": 143, "name": "잠만보", "enName": "Snorlax", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/143.png"}, {"id": 144, "name": "프리져", "enName": "Articuno", "rarity": "전설", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/144.png"}, {"id": 145, "name": "썬더", "enName": "Zapdos", "rarity": "전설", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/145.png"}, {"id": 146, "name": "파이어", "enName": "Moltres", "rarity": "전설", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/146.png"}, {"id": 147, "name": "미뇽", "enName": "Dratini", "rarity": "일반", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/147.png"}, {"id": 148, "name": "신뇽", "enName": "Dragonair", "rarity": "희귀", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/148.png"}, {"id": 149, "name": "망나뇽", "enName": "Dragonite", "rarity": "전설", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png"}, {"id": 150, "name": "뮤츠", "enName": "Mewtwo", "rarity": "전설", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/150.png"}, {"id": 151, "name": "뮤", "enName": "Mew", "rarity": "전설", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/151.png"}, {"id": 716, "name": "제르네아스", "enName": "Xerneas", "rarity": "전설", "imageUrl": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/716.png"}];
@@ -1058,7 +1135,7 @@
       dailyHappyBonus: 20,     // 매일 출석 시 기본 지급 포인트
       presentHappyBonus: 15,   // 발표 1회당 추가 지급 포인트
       ballExchangeCost: 100,   // 추가 몬스터볼 교환 필요 포인트
-      students: [{"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "happy": 150, "pendingBalls": 1, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "happy": 150, "pendingBalls": 1, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "happy": 150, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}],
+      students: [{"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}, {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": null, "todayLog": null, "lastAttendance": "", "trainedToday": false, "collected": {}}],
       soundEnabled: true,
       lastDate: new Date().toISOString().split('T')[0],
       currentSession: null,
@@ -1305,6 +1382,18 @@
             s.representativePokeId = null;
           }
         });
+      }
+
+      // One-time cleanup for mock balls on students 1 and 2 if count is 0
+      if (!localStorage.getItem('pocketmon_balls_reset_v3')) {
+        appState.students.forEach(s => {
+          if (s.count === 0 && (!s.collected || Object.keys(s.collected).length === 0)) {
+            s.pendingBalls = 0;
+            s.happy = 0;
+          }
+        });
+        localStorage.setItem('pocketmon_balls_reset_v3', 'true');
+        saveState();
       }
 
       // Check daily date rollover & award daily happy points
@@ -2367,19 +2456,31 @@
       showToast(`'${winner.name}' 학생에게 몬스터볼이 저장되었습니다! (+1 볼, +${bonus} 해피) 🔴`);
     }
 
-    function openWinnerGachaNow() {
+    function saveWinnerBallAndSpinNext() {
       if (!rouletteWinner) return;
       const winner = rouletteWinner;
-      closeRouletteModal();
-
       const bonus = appState.presentHappyBonus || 15;
       winner.count = (winner.count || 0) + 1;
+      winner.pendingBalls = (winner.pendingBalls || 0) + 1;
       winner.happy = (winner.happy || 0) + bonus;
       winner.todayLog = 'random';
 
+      soundManager.playBallAward();
       saveState();
       renderStudentGrid();
-      launchGachaForStudent(winner);
+      showToast(`'${winner.name}' 학생 몬스터볼 저장 완료! (+1 볼, +${bonus} 해피)`);
+
+      // Switch back to roulette ready state and spin immediately!
+      const initialBtns = document.getElementById('rouletteInitialBtns');
+      const winnerBtns = document.getElementById('rouletteWinnerBtns');
+      winnerBtns.classList.add('hidden');
+      initialBtns.classList.remove('hidden');
+      document.getElementById('rouletteNumberBadge').textContent = '준비';
+      document.getElementById('rouletteNameDisplay').textContent = '추첨 준비 중...';
+      
+      setTimeout(() => {
+        startRouletteSpin();
+      }, 400);
     }
 
     /* ==================== SETTINGS & MANAGEMENT ==================== */
@@ -2459,7 +2560,12 @@
             <span class="text-xs text-amber-300 font-mono bg-slate-800 px-2 py-0.5 rounded border border-slate-700">비번: ${student.password || '0000'}</span>
             <span class="text-xs text-slate-400">(발표 ${student.count || 0}회, 🪙 ${student.happy || 0} 해피, 🔴 볼 ${student.pendingBalls || 0}개, 👑 대표: ${repName})</span>
           </div>
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 flex-wrap">
+            <div class="flex items-center border border-slate-700 rounded-lg overflow-hidden bg-slate-800">
+              <button onclick="adjustStudentBalls(${student.id}, -1)" class="px-2 py-1 text-rose-300 hover:bg-slate-700 text-xs font-bold transition active:scale-95" title="볼 1개 차감">-1볼</button>
+              <button onclick="adjustStudentBalls(${student.id}, 1)" class="px-2 py-1 text-emerald-300 hover:bg-slate-700 text-xs font-bold border-l border-slate-700 transition active:scale-95" title="볼 1개 지급">+1볼</button>
+            </div>
+            <button onclick="resetSingleStudentBalls(${student.id})" class="text-xs text-rose-400 hover:text-rose-300 bg-slate-800 hover:bg-slate-700 px-2 py-1 rounded border border-slate-700 transition" title="이 학생의 볼만 0개로 리셋">볼리셋</button>
             <button onclick="editStudentPasswordPrompt(${student.id})" class="text-xs text-amber-300 hover:text-amber-200 bg-slate-800 px-2 py-1 rounded transition">비번 수정</button>
             <button onclick="editStudentPrompt(${student.id})" class="text-xs text-slate-300 hover:text-white bg-slate-800 px-2 py-1 rounded transition">이름 수정</button>
             <button onclick="deleteStudent(${student.id})" class="text-xs text-red-400 hover:text-red-300 bg-slate-800 px-2 py-1 rounded transition">삭제</button>
@@ -2496,7 +2602,7 @@
         name: name.trim(),
         password: String(nextNum).padStart(4, '0'),
         count: 0,
-        happy: 150,
+        happy: 0,
         pendingBalls: 0,
         representativePokeId: null,
         todayLog: null,
@@ -2571,23 +2677,96 @@
       event.target.value = '';
     }
 
-    function resetAllDataConfirm() {
-      if (confirm('정말로 모든 발표 기록과 도감 수집 데이터를 0으로 초기화하시겠습니까?\n(학생 명단 및 비밀번호는 유지됩니다)')) {
+    /* ==================== RESET MANAGEMENT FUNCTIONS ==================== */
+    function openResetModal() {
+      document.getElementById('resetModal').classList.remove('hidden');
+    }
+    function closeResetModal() {
+      document.getElementById('resetModal').classList.add('hidden');
+    }
+
+    function resetPendingBallsOnly() {
+      if (confirm('모든 학생이 보유한 미개봉 몬스터볼을 0개로 회수/리셋하시겠습니까?\n(발표 횟수나 뽑은 포켓몬 도감은 안전하게 유지됩니다)')) {
         appState.students.forEach(s => {
-          s.count = 0;
-          s.happy = 150;
           s.pendingBalls = 0;
-          s.representativePokeId = null;
-          s.todayLog = null;
-          s.lastAttendance = "";
-          s.trainedToday = false;
-          s.collected = {};
         });
         saveState();
         renderStudentGrid();
         renderManageStudentList();
-        alert('모든 발표 및 도감 기록이 초기화되었습니다.');
+        closeResetModal();
+        showToast('🔴 모든 학생의 미개봉 볼이 0개로 리셋되었습니다.');
       }
+    }
+
+    function resetPresentationCountsOnly() {
+      if (confirm('모든 학생의 발표 횟수를 0으로 리셋하시겠습니까?\n(보유한 포켓몬 도감과 해피포인트는 유지됩니다)')) {
+        appState.students.forEach(s => {
+          s.count = 0;
+          s.todayLog = null;
+        });
+        saveState();
+        renderStudentGrid();
+        renderManageStudentList();
+        closeResetModal();
+        showToast('✨ 모든 발표 횟수가 0으로 리셋되었습니다.');
+      }
+    }
+
+    function resetHappyPointsOnly() {
+      if (confirm('모든 학생의 해피포인트를 0으로 리셋하시겠습니까?')) {
+        appState.students.forEach(s => {
+          s.happy = 0;
+        });
+        saveState();
+        renderStudentGrid();
+        renderManageStudentList();
+        closeResetModal();
+        showToast('🪙 모든 학생의 해피포인트가 0으로 리셋되었습니다.');
+      }
+    }
+
+    function resetAllDataConfirm() {
+      const pw = prompt('⚠️ 경고: 모든 학생의 발표 횟수, 몬스터볼, 해피포인트, 도감 수집 데이터를 완전히 초기화합니다.\n\n진행하시려면 선생님 비밀번호를 입력하세요:');
+      if (pw === null) return;
+      if (pw !== appState.teacherPassword) {
+        alert('선생님 비밀번호가 일치하지 않습니다.');
+        return;
+      }
+      appState.students.forEach(s => {
+        s.count = 0;
+        s.happy = 0;
+        s.pendingBalls = 0;
+        s.representativePokeId = null;
+        s.todayLog = null;
+        s.lastAttendance = "";
+        s.trainedToday = false;
+        s.collected = {};
+      });
+      saveState();
+      renderStudentGrid();
+      renderManageStudentList();
+      closeResetModal();
+      alert('🎉 학급의 모든 발표, 볼, 도감 데이터가 0으로 초기화되었습니다! (새 학기 시작)');
+    }
+
+    function adjustStudentBalls(studentId, delta) {
+      const student = appState.students.find(s => s.id === studentId);
+      if (!student) return;
+      student.pendingBalls = Math.max(0, (student.pendingBalls || 0) + delta);
+      saveState();
+      renderStudentGrid();
+      renderManageStudentList();
+      showToast(`${student.name} 학생의 볼: ${student.pendingBalls}개`);
+    }
+
+    function resetSingleStudentBalls(studentId) {
+      const student = appState.students.find(s => s.id === studentId);
+      if (!student) return;
+      student.pendingBalls = 0;
+      saveState();
+      renderStudentGrid();
+      renderManageStudentList();
+      showToast(`${student.name} 학생의 볼이 0개로 리셋되었습니다.`);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
