@@ -5,22 +5,22 @@ with open('/Users/macbook/Documents/antigravity/pocketmon/pokemon_data.json', 'r
 
 # Initial students with default passwords and daily checkin date tracking
 initial_students = [
-    {"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
-    {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 1, "number": 1, "name": "강해나", "password": "0001", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 2, "number": 2, "name": "김나연", "password": "0002", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 3, "number": 3, "name": "김인애", "password": "0003", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 4, "number": 4, "name": "김제은", "password": "0004", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 5, "number": 5, "name": "김태호", "password": "0005", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 6, "number": 6, "name": "박민하", "password": "0006", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 7, "number": 7, "name": "안세연", "password": "0007", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 8, "number": 8, "name": "염하준", "password": "0008", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 9, "number": 9, "name": "오진욱", "password": "0009", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 10, "number": 10, "name": "이규림", "password": "0010", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 11, "number": 11, "name": "이성빈", "password": "0011", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 12, "number": 12, "name": "정하람", "password": "0012", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 13, "number": 13, "name": "조윤아", "password": "0013", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 14, "number": 14, "name": "이지후", "password": "0014", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 15, "number": 15, "name": "한태우", "password": "0015", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
+    {"id": 16, "number": 16, "name": "허소율", "password": "0016", "count": 0, "todayCount": 0, "happy": 0, "pendingBalls": 0, "representativePokeId": None, "todayLog": None, "lastAttendance": "", "trainedToday": False, "collected": {}},
 ]
 
 html_template = """<!DOCTYPE html>
@@ -86,6 +86,37 @@ html_template = """<!DOCTYPE html>
     }
     .font-jua {
       font-family: 'Jua', sans-serif;
+    }
+    @keyframes rainbowGlow {
+      0% { filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.85)); }
+      25% { filter: drop-shadow(0 0 14px rgba(234, 179, 8, 0.95)); }
+      50% { filter: drop-shadow(0 0 14px rgba(34, 197, 94, 0.95)); }
+      75% { filter: drop-shadow(0 0 14px rgba(59, 130, 246, 0.95)); }
+      100% { filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.85)); }
+    }
+    @keyframes goldGlow {
+      0%, 100% { filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8)); }
+      50% { filter: drop-shadow(0 0 20px rgba(251, 191, 36, 1)); }
+    }
+    @keyframes silverGlow {
+      0%, 100% { filter: drop-shadow(0 0 6px rgba(203, 213, 225, 0.7)); }
+      50% { filter: drop-shadow(0 0 14px rgba(241, 245, 249, 0.95)); }
+    }
+    @keyframes bronzeGlow {
+      0%, 100% { filter: drop-shadow(0 0 4px rgba(180, 83, 9, 0.6)); }
+      50% { filter: drop-shadow(0 0 10px rgba(217, 119, 6, 0.85)); }
+    }
+    .champion-aura {
+      animation: rainbowGlow 2.5s infinite;
+    }
+    .gold-aura {
+      animation: goldGlow 2s infinite;
+    }
+    .silver-aura {
+      animation: silverGlow 2.5s infinite;
+    }
+    .bronze-aura {
+      animation: bronzeGlow 2.5s infinite;
     }
     .pokeball-btn {
       background: linear-gradient(to bottom, #ef4444 50%, #ffffff 50%);
@@ -460,16 +491,18 @@ html_template = """<!DOCTYPE html>
             
             <!-- 1. Rep is Set -->
             <div id="studentRepSetBox" class="flex items-center gap-4 my-2">
-              <div class="w-24 h-24 rounded-2xl bg-slate-900 border-2 border-amber-400/50 flex items-center justify-center p-2 shadow-inner">
-                <img id="studentViewRepImg" src="" class="w-full h-full object-contain filter drop-shadow" />
+              <div id="studentViewRepImgContainer" class="w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-slate-900 border-2 border-amber-400/50 flex items-center justify-center p-2 shadow-inner relative flex-shrink-0">
+                <span id="studentViewCrown" class="hidden absolute -top-4 text-2xl filter drop-shadow animate-bounce">👑</span>
+                <img id="studentViewRepImg" src="" class="w-full h-full object-contain filter drop-shadow transition-all duration-300" />
               </div>
-              <div class="flex-1">
+              <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2">
-                  <h4 id="studentViewRepName" class="text-2xl font-jua text-white mb-1">포켓몬</h4>
-                  <button onclick="openPokedexForCurrentStudentView()" class="text-[11px] text-amber-400 hover:text-amber-300 bg-slate-800 px-2 py-0.5 rounded-lg border border-slate-700 transition" title="대표 포켓몬 변경">변경</button>
+                  <h4 id="studentViewRepName" class="text-2xl font-jua text-white mb-0.5 truncate">포켓몬</h4>
+                  <button onclick="openPokedexForCurrentStudentView()" class="text-[11px] text-amber-400 hover:text-amber-300 bg-slate-800 px-2 py-0.5 rounded-lg border border-slate-700 transition flex-shrink-0" title="대표 포켓몬 변경">변경</button>
                 </div>
-                <p id="studentViewRepLevel" class="text-xs text-slate-300">레벨 2 • 친밀도 7</p>
-                <p class="text-xs text-amber-400 font-bold mt-1">🪙 <span id="studentViewHappy">150</span> 해피 보유</p>
+                <p id="studentViewRepLevel" class="text-xs text-slate-300">레벨 1 • 친밀도 7</p>
+                <p id="studentViewEvolutionStatus" class="text-[11px] text-emerald-400 font-bold mt-0.5 font-jua"></p>
+                <p class="text-xs text-amber-400 font-bold mt-1">🪙 <span id="studentViewHappy">0</span> 해피 보유</p>
               </div>
             </div>
 
@@ -610,8 +643,8 @@ html_template = """<!DOCTYPE html>
         </div>
       </div>
 
-      <div class="w-full bg-emerald-50/70 border border-emerald-200 rounded-2xl p-2.5 text-[11px] text-emerald-900 text-center font-medium mb-5">
-        레벨 2 동색 · 3 은색 · 4 금색 · 5 챔피언
+      <div id="trainingNextStagePreview" class="w-full bg-emerald-50/90 border border-emerald-300 rounded-2xl p-2.5 text-xs text-emerald-950 text-center font-jua font-bold mb-4 shadow-sm">
+        다음 단계: ⚡ 포켓몬 진화 또는 각성!
       </div>
 
       <button id="trainingActionBtn" onclick="executeTraining()" class="w-full py-3 rounded-2xl bg-[#00897b] hover:bg-[#00796b] active:scale-95 text-white font-jua text-sm sm:text-base shadow-md transition">
@@ -621,6 +654,67 @@ html_template = """<!DOCTYPE html>
       <div class="mt-4 text-center">
         <p class="text-xs text-slate-400 font-jua">훈련하고, 더 강해지고 🔥</p>
       </div>
+    </div>
+  </div>
+
+  <!-- B-2. 포켓몬 진화 & 각성 축하 컷신 모달 -->
+  <div id="evolutionCutsceneModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl hidden transition-opacity duration-300">
+    <div class="bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-950 border-4 border-amber-400 rounded-3xl w-full max-w-lg p-6 sm:p-8 shadow-[0_0_60px_rgba(251,191,36,0.6)] flex flex-col items-center relative animate-card-pop text-center overflow-hidden">
+      <!-- Close button -->
+      <button onclick="closeEvolutionModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white w-8 h-8 rounded-full bg-slate-800/80 flex items-center justify-center text-sm font-bold transition">
+        ✕
+      </button>
+
+      <!-- Ray effect in background -->
+      <div class="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-400 via-rose-500 to-transparent animate-pulse"></div>
+
+      <!-- Header Banner -->
+      <div id="evoModalBadge" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 text-slate-950 font-jua text-sm sm:text-base font-bold shadow-lg mb-3 flex items-center gap-1.5 animate-bounce">
+        ✨ 진화 성공! ✨
+      </div>
+
+      <h3 id="evoModalTitle" class="text-2xl sm:text-3xl font-jua text-white mb-4 tracking-tight drop-shadow-md">
+        파이리가 리자드로 진화했습니다!
+      </h3>
+
+      <!-- Evolution Comparison Box -->
+      <div class="relative w-full py-3 flex items-center justify-center gap-3 sm:gap-6 my-2">
+        <!-- Before Pokemon (Smaller) -->
+        <div id="evoBeforeBox" class="flex flex-col items-center opacity-70 scale-90 transition">
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-slate-800/80 border-2 border-slate-600 p-2 flex items-center justify-center">
+            <img id="evoBeforeImg" src="" class="w-full h-full object-contain filter grayscale-[20%]" />
+          </div>
+          <span id="evoBeforeName" class="text-xs font-jua text-slate-400 mt-1.5">파이리 (Lv.1)</span>
+        </div>
+
+        <!-- Arrow -->
+        <div id="evoArrowBox" class="text-2xl sm:text-3xl text-amber-400 font-bold animate-pulse">
+          ⚡
+        </div>
+
+        <!-- After Pokemon (Large Glowing) -->
+        <div class="flex flex-col items-center relative">
+          <div id="evoCrownIcon" class="hidden absolute -top-5 text-3xl animate-bounce z-10 filter drop-shadow">
+            👑
+          </div>
+          <div id="evoAfterImgBox" class="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-slate-800/90 border-4 border-amber-400 p-3 flex items-center justify-center shadow-[0_0_30px_rgba(251,191,36,0.8)] relative">
+            <img id="evoAfterImg" src="" class="w-full h-full object-contain filter drop-shadow-xl" />
+          </div>
+          <span id="evoAfterName" class="text-base sm:text-lg font-jua text-amber-300 mt-2 font-bold">리자드</span>
+          <span id="evoTierBadge" class="text-xs px-2.5 py-0.5 rounded-full font-bold bg-amber-400 text-slate-950 mt-0.5">Lv.2 · 동색</span>
+        </div>
+      </div>
+
+      <!-- Description and Pokedex alert -->
+      <p id="evoModalDesc" class="text-xs sm:text-sm text-slate-300 my-3 leading-relaxed">
+        새로운 모습으로 진화하여 학급 도감에도 등록되었습니다! 📖
+      </p>
+
+      <!-- Action Button -->
+      <button onclick="closeEvolutionModal()" class="w-full mt-3 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 hover:from-amber-300 hover:to-orange-400 active:scale-95 text-slate-950 font-jua text-base sm:text-lg shadow-xl transition flex items-center justify-center gap-2 cursor-pointer">
+        <span>🎉</span>
+        <span>멋진 모습 확인하기!</span>
+      </button>
     </div>
   </div>
 
@@ -1031,6 +1125,64 @@ html_template = """<!DOCTYPE html>
   <script>
     const POKEMON_DATA = __POKEMON_DATA_JSON__;
 
+    // Official Gen 1 Evolution Map (70 valid mappings)
+    const EVOLUTION_MAP = {
+      1: 2, 2: 3,        // 이상해씨 -> 이상해풀 -> 이상해꽃
+      4: 5, 5: 6,        // 파이리 -> 리자드 -> 리자몽
+      7: 8, 8: 9,        // 꼬부기 -> 어니부기 -> 거북왕
+      10: 11, 11: 12,    // 캐터피 -> 단데기 -> 버터플
+      13: 14, 14: 15,    // 뿔충이 -> 딱충이 -> 독침붕
+      16: 17, 17: 18,    // 구구 -> 피죤 -> 피죤투
+      19: 20,            // 꼬렛 -> 레트라
+      21: 22,            // 깨비참 -> 깨비드릴조
+      23: 24,            // 아보 -> 아보크
+      25: 26,            // 피카츄 -> 라이츄
+      27: 28,            // 모래두지 -> 고지
+      29: 30, 30: 31,    // 니드런♀ -> 니드리나 -> 니드퀸
+      32: 33, 33: 34,    // 니드런♂ -> 니드리노 -> 니드킹
+      35: 36,            // 삐삐 -> 픽시
+      37: 38,            // 식스테일 -> 나인테일
+      39: 40,            // 푸린 -> 푸크린
+      41: 42,            // 주뱃 -> 골뱃
+      43: 44, 44: 45,    // 뚜벅쵸 -> 냄새꼬 -> 라플레시아
+      46: 47,            // 파라스 -> 파라섹트
+      48: 49,            // 콘팡 -> 도나리
+      50: 51,            // 디그다 -> 닥트리오
+      52: 53,            // 나옹 -> 페르시온
+      54: 55,            // 고라파덕 -> 골덕
+      56: 57,            // 망키 -> 성원숭
+      58: 59,            // 가디 -> 윈디
+      60: 61, 61: 62,    // 발챙이 -> 슈륙챙이 -> 강챙이
+      63: 64, 64: 65,    // 캐이시 -> 윤겔라 -> 후딘
+      66: 67, 67: 68,    // 알통몬 -> 근육몬 -> 괴력몬
+      69: 70, 70: 71,    // 모다피 -> 우츠동 -> 우츠보트
+      72: 73,            // 왕눈해 -> 독파리
+      74: 75, 75: 76,    // 꼬마돌 -> 데구리 -> 딱구리
+      77: 78,            // 포니타 -> 날쌩마
+      79: 80,            // 야돈 -> 야도란
+      81: 82,            // 코일 -> 레어코일
+      84: 85,            // 두두 -> 두트리오
+      86: 87,            // 쥬쥬 -> 쥬레곤
+      88: 89,            // 질퍽이 -> 질뻐기
+      90: 91,            // 셀러 -> 파르셀
+      92: 93, 93: 94,    // 고오스 -> 고우스트 -> 팬텀
+      96: 97,            // 슬리프 -> 슬리퍼
+      98: 99,            // 크랩 -> 킹크랩
+      100: 101,          // 찌리리공 -> 붐볼
+      102: 103,          // 아라리 -> 나시
+      104: 105,          // 탕구리 -> 텅구리
+      109: 110,          // 또가스 -> 또도가스
+      111: 112,          // 뿔카노 -> 코뿌리
+      116: 117,          // 쏘드라 -> 시드라
+      118: 119,          // 콘치 -> 왕콘치
+      120: 121,          // 별가사리 -> 아쿠스타
+      129: 130,          // 잉어킹 -> 갸라도스
+      133: 134,          // 이브이 -> 샤미드
+      138: 139,          // 암나이트 -> 암스타
+      140: 141,          // 투구 -> 투구푸스
+      147: 148, 148: 149 // 미뇽 -> 신뇽 -> 망나뇽
+    };
+
     /* Sound Synthesizer */
     class RetroSoundManager {
       constructor() {
@@ -1410,26 +1562,35 @@ html_template = """<!DOCTYPE html>
       }
 
       // One-time cleanup for mock balls on students 1 and 2 if count is 0
-      if (!localStorage.getItem('pocketmon_balls_reset_v3')) {
+      if (!localStorage.getItem('pocketmon_balls_reset_v4')) {
         appState.students.forEach(s => {
-          if (s.count === 0 && (!s.collected || Object.keys(s.collected).length === 0)) {
+          if ((s.count === 0 || !s.count) && (!s.collected || Object.keys(s.collected).length === 0)) {
             s.pendingBalls = 0;
             s.happy = 0;
           }
+          if (typeof s.todayCount !== 'number') s.todayCount = 0;
         });
-        localStorage.setItem('pocketmon_balls_reset_v3', 'true');
+        localStorage.setItem('pocketmon_balls_reset_v4', 'true');
         saveState();
       }
 
-      // Check daily date rollover & award daily happy points
+      // Check daily date rollover & reset today's presentation count
       const today = new Date().toISOString().split('T')[0];
       if (appState.lastDate !== today) {
         appState.lastDate = today;
         appState.students.forEach(s => {
+          s.todayCount = 0;
           s.todayLog = null;
           s.trainedToday = false;
         });
         saveState();
+      }
+
+      // Ensure every student has todayCount property initialized
+      if (appState.students) {
+        appState.students.forEach(s => {
+          if (typeof s.todayCount !== 'number') s.todayCount = 0;
+        });
       }
 
       // Initialize Cloud Sync if config exists
@@ -1502,11 +1663,11 @@ html_template = """<!DOCTYPE html>
     }
 
     function getLevelTier(lvl) {
-      if (lvl >= 5) return { name: '챔피언', badgeClass: 'bg-gradient-to-r from-amber-400 to-red-500 text-white font-bold', border: 'border-red-500' };
-      if (lvl === 4) return { name: '금색', badgeClass: 'bg-amber-400 text-slate-950 font-bold', border: 'border-amber-400' };
-      if (lvl === 3) return { name: '은색', badgeClass: 'bg-slate-300 text-slate-900 font-bold', border: 'border-slate-300' };
-      if (lvl === 2) return { name: '동색', badgeClass: 'bg-amber-700 text-amber-100 font-bold', border: 'border-amber-700' };
-      return { name: '기본', badgeClass: 'bg-slate-700 text-slate-300 font-medium', border: 'border-slate-600' };
+      if (lvl >= 5) return { name: '챔피언', badgeClass: 'bg-gradient-to-r from-amber-400 to-red-500 text-white font-bold', border: 'border-red-500', auraClass: 'champion-aura', hasCrown: true };
+      if (lvl === 4) return { name: '금색', badgeClass: 'bg-amber-400 text-slate-950 font-bold', border: 'border-amber-400', auraClass: 'gold-aura', hasCrown: false };
+      if (lvl === 3) return { name: '은색', badgeClass: 'bg-slate-300 text-slate-900 font-bold', border: 'border-slate-300', auraClass: 'silver-aura', hasCrown: false };
+      if (lvl === 2) return { name: '동색', badgeClass: 'bg-amber-700 text-amber-100 font-bold', border: 'border-amber-700', auraClass: 'bronze-aura', hasCrown: false };
+      return { name: '기본', badgeClass: 'bg-slate-700 text-slate-300 font-medium', border: 'border-slate-600', auraClass: '', hasCrown: false };
     }
 
     /* Check & award Daily Attendance Happy Points when student logs in */
@@ -1685,12 +1846,18 @@ html_template = """<!DOCTYPE html>
             <div class="flex items-center gap-1 px-2 py-0.5 rounded-full bg-rose-500/20 border border-rose-400/60 text-rose-300 font-jua text-[11px] animate-pulse">
               <span class="mini-ball animate-bounce"></span>
               <span>미개봉 ${pendingBalls}개</span>
+              <button onclick="event.stopPropagation(); resetSingleStudentBalls(${student.id})" class="ml-0.5 text-[9px] text-rose-300 hover:text-white bg-rose-900/60 hover:bg-rose-700 px-1 rounded font-bold transition" title="이 학생의 미개봉 볼 0개로 회수">✕</button>
             </div>
           `;
         }
 
+        const crownSpan = (tier && tier.hasCrown) 
+          ? `<span class="absolute -top-2.5 left-1/2 -translate-x-1/2 text-sm filter drop-shadow animate-bounce z-10">👑</span>` 
+          : '';
+
         const repAvatarHtml = repPoke ? `
-          <div class="w-14 h-14 rounded-2xl bg-slate-800/90 border-2 ${tier.border} flex items-center justify-center overflow-hidden flex-shrink-0 relative group-hover:border-emerald-400/60 shadow-sm p-1">
+          <div class="w-14 h-14 rounded-2xl bg-slate-800/90 border-2 ${tier.border} ${tier.auraClass} flex items-center justify-center overflow-hidden flex-shrink-0 relative group-hover:border-emerald-400/60 shadow-sm p-1">
+            ${crownSpan}
             <img src="${repPoke.imageUrl}" alt="${repPoke.name}" class="w-full h-full object-contain filter drop-shadow" />
             <span class="absolute bottom-0 right-0 text-[9px] px-1 rounded-tl-md ${tier.badgeClass}">
               Lv.${repData.level || 1}
@@ -1711,8 +1878,8 @@ html_template = """<!DOCTYPE html>
             <div class="flex items-center gap-1.5">
               ${pendingBallBadge}
               ${todayBadgeHtml}
-              <span class="text-xs font-bold px-2 py-0.5 rounded-full ${student.count > 0 ? 'bg-amber-400 text-slate-950 font-jua' : 'bg-slate-800 text-slate-400'} border border-amber-400/30">
-                발표 ${student.count || 0}회
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full ${student.todayCount > 0 ? 'bg-amber-400 text-slate-950 font-jua' : 'bg-slate-800 text-slate-400'} border border-amber-400/30" title="오늘 ${student.todayCount || 0}회 / 총 누적 ${student.count || 0}회">
+                오늘 발표 ${student.todayCount || 0}회
               </span>
             </div>
           </div>
@@ -1732,14 +1899,18 @@ html_template = """<!DOCTYPE html>
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-2 mt-2 pt-2 border-t border-slate-800" onclick="event.stopPropagation()">
-            <button onclick="teacherQuickAward(${student.id})" class="py-1.5 px-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-jua text-xs shadow transition active:scale-95 flex items-center justify-center gap-1" title="수업 중 발표 즉시 저장 (+1 볼, +15 해피 적립)">
+          <div class="grid grid-cols-3 gap-1.5 mt-2 pt-2 border-t border-slate-800" onclick="event.stopPropagation()">
+            <button onclick="teacherQuickAward(${student.id})" class="py-1.5 px-1 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-jua text-[11px] sm:text-xs shadow transition active:scale-95 flex items-center justify-center gap-0.5" title="수업 중 발표 즉시 저장 (+1 볼, +15 해피, 오늘 발표 +1회)">
               <span>⚡</span>
-              <span>+1 볼 저장</span>
+              <span>+1 볼</span>
             </button>
-            <button onclick="openPokedexForStudent(${student.id})" class="py-1.5 px-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-jua text-xs border border-slate-700 transition active:scale-95 flex items-center justify-center gap-1" title="도감 확인">
+            <button onclick="teacherSubtractBall(${student.id})" class="py-1.5 px-1 rounded-xl bg-slate-800 hover:bg-rose-900/50 text-slate-400 hover:text-rose-300 font-jua text-[11px] sm:text-xs border border-slate-700 hover:border-rose-600 transition active:scale-95 flex items-center justify-center gap-0.5" title="실수 회수 (-1 볼, -15 해피, 오늘 발표 -1회)">
+              <span>↩️</span>
+              <span>-1</span>
+            </button>
+            <button onclick="openPokedexForStudent(${student.id})" class="py-1.5 px-1 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-jua text-[11px] sm:text-xs border border-slate-700 transition active:scale-95 flex items-center justify-center gap-0.5" title="도감 확인">
               <span>📖</span>
-              <span>도감 보기</span>
+              <span>도감</span>
             </button>
           </div>
         `;
@@ -1756,6 +1927,7 @@ html_template = """<!DOCTYPE html>
       if (!student) return;
 
       const bonus = appState.presentHappyBonus || 15;
+      student.todayCount = (student.todayCount || 0) + 1;
       student.count = (student.count || 0) + 1;
       student.pendingBalls = (student.pendingBalls || 0) + 1;
       student.happy = (student.happy || 0) + bonus;
@@ -1768,9 +1940,34 @@ html_template = """<!DOCTYPE html>
       renderStudentGrid();
     }
 
+    function teacherSubtractBall(studentId) {
+      soundManager.init();
+      const student = appState.students.find(s => s.id === studentId);
+      if (!student) return;
+
+      if ((student.pendingBalls || 0) <= 0 && (student.todayCount || 0) <= 0) {
+        showToast(`'${student.name}' 학생은 차감할 볼이나 오늘 발표 기록이 없습니다.`);
+        return;
+      }
+
+      const bonus = appState.presentHappyBonus || 15;
+      student.pendingBalls = Math.max(0, (student.pendingBalls || 0) - 1);
+      student.todayCount = Math.max(0, (student.todayCount || 0) - 1);
+      student.count = Math.max(0, (student.count || 0) - 1);
+      student.happy = Math.max(0, (student.happy || 0) - bonus);
+      if (student.todayCount === 0) {
+        student.todayLog = null;
+      }
+
+      soundManager.playTick();
+      showToast(`'${student.name}' 학생: -1 볼 회수 완료 (-${bonus} 해피, 오늘 발표 -1회)`);
+      saveState();
+      renderStudentGrid();
+    }
+
     function updateGlobalStats() {
-      const totalCount = appState.students.reduce((acc, cur) => acc + (cur.count || 0), 0);
-      document.getElementById('statTodayCount').textContent = totalCount + '회';
+      const todayTotal = appState.students.reduce((acc, cur) => acc + (cur.todayCount || 0), 0);
+      document.getElementById('statTodayCount').textContent = todayTotal + '회';
 
       const uniqueIds = new Set();
       let totalPending = 0;
@@ -1842,12 +2039,46 @@ html_template = """<!DOCTYPE html>
       if (repPoke && repData) {
         if (setBox) setBox.classList.remove('hidden');
         if (emptyBox) emptyBox.classList.add('hidden');
+        
+        const tier = getLevelTier(repData.level || 1);
         if (tierBadge) {
           tierBadge.classList.remove('hidden');
-          const tier = getLevelTier(repData.level || 1);
           tierBadge.textContent = `레벨 ${repData.level || 1} · ${tier.name}`;
           tierBadge.className = `text-xs px-2.5 py-0.5 rounded-full font-bold ${tier.badgeClass}`;
         }
+
+        const imgContainer = document.getElementById('studentViewRepImgContainer');
+        const crown = document.getElementById('studentViewCrown');
+        const evoStatus = document.getElementById('studentViewEvolutionStatus');
+
+        if (imgContainer) {
+          imgContainer.className = `w-24 h-24 sm:w-28 sm:h-28 rounded-3xl bg-slate-900 border-2 ${tier.border} ${tier.auraClass} flex items-center justify-center p-2 shadow-inner relative flex-shrink-0 transition-all duration-300`;
+        }
+        if (crown) {
+          if (tier.hasCrown) crown.classList.remove('hidden');
+          else crown.classList.add('hidden');
+        }
+        if (evoStatus) {
+          const nextPokeId = EVOLUTION_MAP[repPoke.id];
+          if (nextPokeId) {
+            const nextPoke = POKEMON_DATA.find(p => p.id === nextPokeId);
+            evoStatus.textContent = `⚡ 훈련 시: ${nextPoke ? nextPoke.name : '진화형'} (으)로 진화!`;
+            evoStatus.className = "text-[11px] text-emerald-400 font-bold mt-0.5 font-jua";
+          } else if (repData.level >= 5) {
+            evoStatus.textContent = `👑 최고 등급 [챔피언 신화] 달성!`;
+            evoStatus.className = "text-[11px] text-amber-300 font-bold mt-0.5 font-jua animate-pulse";
+          } else if (repData.level === 4) {
+            evoStatus.textContent = `⚡ 훈련 시: 👑 챔피언 신화 각성!`;
+            evoStatus.className = "text-[11px] text-amber-400 font-bold mt-0.5 font-jua";
+          } else if (repData.level === 3) {
+            evoStatus.textContent = `⚡ 훈련 시: 🥇 황금 메가 각성!`;
+            evoStatus.className = "text-[11px] text-amber-300 font-bold mt-0.5 font-jua";
+          } else {
+            evoStatus.textContent = `⚡ 훈련 시: 🥈 은빛 각성!`;
+            evoStatus.className = "text-[11px] text-slate-300 font-bold mt-0.5 font-jua";
+          }
+        }
+
         document.getElementById('studentViewRepImg').src = repPoke.imageUrl;
         document.getElementById('studentViewRepName').textContent = repPoke.name;
         document.getElementById('studentViewRepLevel').textContent = `레벨 ${repData.level || 1} • 친밀도 ${repData.friendship || 7}`;
@@ -1861,6 +2092,8 @@ html_template = """<!DOCTYPE html>
         if (setBox) setBox.classList.add('hidden');
         if (emptyBox) emptyBox.classList.remove('hidden');
         if (tierBadge) tierBadge.classList.add('hidden');
+        const evoStatus = document.getElementById('studentViewEvolutionStatus');
+        if (evoStatus) evoStatus.textContent = '';
 
         const emptyDesc = document.getElementById('studentRepEmptyDesc');
         const selectBtn = document.getElementById('studentRepSelectBtn');
@@ -1933,6 +2166,7 @@ html_template = """<!DOCTYPE html>
         ? (appState.presentHappyBonus || 15) 
         : Math.max(10, (appState.presentHappyBonus || 15) - 5);
 
+      activeStudent.todayCount = (activeStudent.todayCount || 0) + 1;
       activeStudent.count = (activeStudent.count || 0) + 1;
       activeStudent.pendingBalls = (activeStudent.pendingBalls || 0) + 1;
       activeStudent.happy = (activeStudent.happy || 0) + bonus;
@@ -2168,23 +2402,61 @@ html_template = """<!DOCTYPE html>
       const tier = getLevelTier(repData.level || 1);
       document.getElementById('trainingPokeLevelBadge').textContent = `레벨 ${repData.level || 1} · ${tier.name}`;
 
+      const previewBox = document.getElementById('trainingNextStagePreview');
+      if (previewBox) {
+        const nextPokeId = EVOLUTION_MAP[repPoke.id];
+        if (nextPokeId) {
+          const nextPoke = POKEMON_DATA.find(p => p.id === nextPokeId);
+          previewBox.innerHTML = `
+            <div class="text-amber-300 font-bold text-xs sm:text-sm">✨ 다음 훈련 시: ${nextPoke ? nextPoke.name : '진화형'} (으)로 진화! ✨</div>
+            <div class="text-[11px] text-emerald-300 font-normal mt-0.5">외형이 완전히 새로운 모습으로 진화하며 학급 도감에 등록됩니다!</div>
+          `;
+          previewBox.className = "w-full bg-gradient-to-r from-emerald-950/80 via-slate-900 to-emerald-950/80 border border-emerald-400/60 rounded-2xl p-3 text-center font-jua mb-4 shadow-md";
+        } else if ((repData.level || 1) >= 5) {
+          previewBox.innerHTML = `
+            <div class="text-amber-300 font-bold text-xs sm:text-sm">👑 최고 등급 [챔피언 신화] 달성! 👑</div>
+            <div class="text-[11px] text-slate-300 font-normal mt-0.5">이미 최고 레벨과 무지개 오라, 황금 왕관을 모두 획득했습니다.</div>
+          `;
+          previewBox.className = "w-full bg-slate-900/90 border border-amber-400/60 rounded-2xl p-3 text-center font-jua mb-4 shadow-md";
+        } else if ((repData.level || 1) === 4) {
+          previewBox.innerHTML = `
+            <div class="text-rose-300 font-bold text-xs sm:text-sm">👑 다음 단계: 챔피언 신화 각성! (무지개 오라 & 왕관) 👑</div>
+            <div class="text-[11px] text-amber-200 font-normal mt-0.5">머리 위에 황금 왕관이 생기고 영롱한 무지개 빛 오라를 뿜어냅니다!</div>
+          `;
+          previewBox.className = "w-full bg-gradient-to-r from-red-950/80 via-indigo-950 to-amber-950/80 border border-red-500/60 rounded-2xl p-3 text-center font-jua mb-4 shadow-md";
+        } else if ((repData.level || 1) === 3) {
+          previewBox.innerHTML = `
+            <div class="text-amber-300 font-bold text-xs sm:text-sm">🥇 다음 단계: 황금 메가 각성! (골드 오라) 🥇</div>
+            <div class="text-[11px] text-amber-200 font-normal mt-0.5">빛나는 황금 오라와 황금 테두리로 한층 더 화려해집니다!</div>
+          `;
+          previewBox.className = "w-full bg-gradient-to-r from-amber-950/80 via-slate-900 to-amber-950/80 border border-amber-400/60 rounded-2xl p-3 text-center font-jua mb-4 shadow-md";
+        } else {
+          previewBox.innerHTML = `
+            <div class="text-slate-200 font-bold text-xs sm:text-sm">🥈 다음 단계: 은빛 각성! (실버 오라) 🥈</div>
+            <div class="text-[11px] text-slate-300 font-normal mt-0.5">은빛 오라와 함께 친밀도가 크게 상승합니다!</div>
+          `;
+          previewBox.className = "w-full bg-slate-900/80 border border-slate-600 rounded-2xl p-3 text-center font-jua mb-4 shadow-md";
+        }
+      }
+
       const btn = document.getElementById('trainingActionBtn');
       if (student.trainedToday) {
-        btn.textContent = "오늘 훈련 완료 또는 모두 챔피언";
+        btn.textContent = "오늘 훈련 완료 (내일 다시 도전하세요!)";
         btn.disabled = true;
         btn.className = "w-full py-3 rounded-2xl bg-slate-200 text-slate-500 font-jua text-sm sm:text-base cursor-not-allowed";
       } else if ((student.happy || 0) < 50) {
         btn.textContent = "해피 포인트 부족 (50 해피 필요)";
         btn.disabled = true;
         btn.className = "w-full py-3 rounded-2xl bg-slate-200 text-slate-500 font-jua text-sm sm:text-base cursor-not-allowed";
-      } else if ((repData.level || 1) >= 5) {
+      } else if ((repData.level || 1) >= 5 && !EVOLUTION_MAP[repPoke.id]) {
         btn.textContent = "이미 최고 레벨(챔피언)입니다!";
         btn.disabled = true;
         btn.className = "w-full py-3 rounded-2xl bg-amber-400 text-slate-900 font-jua text-sm sm:text-base cursor-not-allowed";
       } else {
-        btn.textContent = "훈련하기 (-50 해피, 레벨 +1)";
+        const nextPokeId = EVOLUTION_MAP[repPoke.id];
+        btn.textContent = nextPokeId ? "훈련 및 진화하기 (-50 해피)" : "훈련하기 (-50 해피, 레벨 +1)";
         btn.disabled = false;
-        btn.className = "w-full py-3 rounded-2xl bg-[#00897b] hover:bg-[#00796b] active:scale-95 text-white font-jua text-sm sm:text-base shadow-md transition";
+        btn.className = "w-full py-3 rounded-2xl bg-[#00897b] hover:bg-[#00796b] active:scale-95 text-white font-jua text-sm sm:text-base shadow-md transition cursor-pointer";
       }
 
       document.getElementById('trainingModal').classList.remove('hidden');
@@ -2206,34 +2478,154 @@ html_template = """<!DOCTYPE html>
       student.happy -= 50;
       student.trainedToday = true;
 
-      if (!student.collected) student.collected = {};
-      if (!student.collected[repId]) {
-        student.collected[repId] = {
-          count: 1,
-          firstMet: new Date().toISOString().split('T')[0],
-          level: 2,
-          exp: 0,
-          friendship: 7
+      const currentRep = student.collected[repId];
+      const oldLevel = currentRep.level || 1;
+      const oldFriendship = currentRep.friendship || 7;
+      const nextPokeId = EVOLUTION_MAP[repId];
+      const oldPoke = POKEMON_DATA.find(p => p.id === repId);
+
+      let cutscenePayload = null;
+
+      if (nextPokeId) {
+        // REAL EVOLUTION!
+        const newPoke = POKEMON_DATA.find(p => p.id === nextPokeId);
+        const newLevel = Math.min(5, oldLevel + 1);
+        const now = new Date();
+        const dateStr = `${now.getFullYear()}. ${now.getMonth() + 1}. ${now.getDate()}.`;
+
+        // Register evolved form in collection
+        if (!student.collected[nextPokeId]) {
+          student.collected[nextPokeId] = {
+            count: 1,
+            firstMet: dateStr,
+            level: newLevel,
+            exp: 0,
+            friendship: oldFriendship + 5
+          };
+        } else {
+          student.collected[nextPokeId].count = (student.collected[nextPokeId].count || 1) + 1;
+          student.collected[nextPokeId].level = newLevel;
+          student.collected[nextPokeId].friendship = (student.collected[nextPokeId].friendship || oldFriendship) + 5;
+        }
+
+        // Switch representative Pokemon to the new evolved form!
+        student.representativePokeId = nextPokeId;
+
+        cutscenePayload = {
+          evolved: true,
+          oldPoke,
+          newPoke,
+          oldLevel,
+          newLevel
+        };
+      } else {
+        // Non-evolution Awakening / Level Up
+        const newLevel = Math.min(5, oldLevel + 1);
+        currentRep.level = newLevel;
+        currentRep.friendship = oldFriendship + 3;
+
+        cutscenePayload = {
+          evolved: false,
+          poke: oldPoke,
+          oldLevel,
+          newLevel
         };
       }
 
-      student.collected[repId].level = Math.min(5, (student.collected[repId].level || 1) + 1);
-      student.collected[repId].friendship = (student.collected[repId].friendship || 7) + 3;
-
-      soundManager.playLevelUp();
-      confetti({
-        particleCount: 50,
-        spread: 60,
-        origin: { y: 0.6 }
-      });
-
       saveState();
+      closeTrainingModal();
+
       if (appState.currentSession && appState.currentSession.role === 'student') {
         renderStudentView(student.id);
       } else {
         renderStudentGrid();
       }
-      openTrainingModalForStudent(student.id);
+
+      showEvolutionCutscene(cutscenePayload);
+    }
+
+    function showEvolutionCutscene(data) {
+      if (!data) return;
+      const modal = document.getElementById('evolutionCutsceneModal');
+      if (!modal) return;
+
+      const badge = document.getElementById('evoModalBadge');
+      const title = document.getElementById('evoModalTitle');
+      const desc = document.getElementById('evoModalDesc');
+      const beforeBox = document.getElementById('evoBeforeBox');
+      const arrowBox = document.getElementById('evoArrowBox');
+      const crownIcon = document.getElementById('evoCrownIcon');
+      const afterBox = document.getElementById('evoAfterImgBox');
+
+      if (data.evolved) {
+        badge.textContent = "✨ 포켓몬 진화 대성공! ✨";
+        badge.className = "px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 text-slate-950 font-jua text-sm sm:text-base font-bold shadow-lg mb-3 flex items-center gap-1.5 animate-bounce";
+        title.textContent = `${data.oldPoke.name}(이)가 ${data.newPoke.name}(으)로 진화했습니다!`;
+        desc.textContent = `축하합니다! 새로운 모습으로 진화하여 학급 도감에도 등록되고 대표 포켓몬으로 지정되었습니다! 📖`;
+        
+        beforeBox.classList.remove('hidden');
+        arrowBox.classList.remove('hidden');
+        document.getElementById('evoBeforeImg').src = data.oldPoke.imageUrl;
+        document.getElementById('evoBeforeName').textContent = `${data.oldPoke.name} (Lv.${data.oldLevel})`;
+
+        document.getElementById('evoAfterImg').src = data.newPoke.imageUrl;
+        document.getElementById('evoAfterName').textContent = data.newPoke.name;
+        const tier = getLevelTier(data.newLevel);
+        document.getElementById('evoTierBadge').textContent = `Lv.${data.newLevel} · ${tier.name}`;
+        document.getElementById('evoTierBadge').className = `text-xs px-2.5 py-0.5 rounded-full font-bold ${tier.badgeClass}`;
+        
+        if (data.newLevel >= 5) {
+          crownIcon.classList.remove('hidden');
+          afterBox.className = "w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-slate-800/90 border-4 border-red-500 p-3 flex items-center justify-center champion-aura shadow-[0_0_40px_rgba(239,68,68,0.9)] relative";
+        } else {
+          crownIcon.classList.add('hidden');
+          afterBox.className = "w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-slate-800/90 border-4 border-amber-400 p-3 flex items-center justify-center gold-aura shadow-[0_0_30px_rgba(251,191,36,0.8)] relative";
+        }
+      } else {
+        const tier = getLevelTier(data.newLevel);
+        beforeBox.classList.add('hidden');
+        arrowBox.classList.add('hidden');
+        document.getElementById('evoAfterImg').src = data.poke.imageUrl;
+        document.getElementById('evoAfterName').textContent = data.poke.name;
+        document.getElementById('evoTierBadge').textContent = `Lv.${data.newLevel} · ${tier.name}`;
+        document.getElementById('evoTierBadge').className = `text-xs px-2.5 py-0.5 rounded-full font-bold ${tier.badgeClass}`;
+
+        if (data.newLevel >= 5) {
+          badge.textContent = "👑 챔피언 신화 각성 달성! 👑";
+          badge.className = "px-4 py-1.5 rounded-full bg-gradient-to-r from-red-500 via-amber-400 to-purple-500 text-white font-jua text-sm sm:text-base font-bold shadow-lg mb-3 flex items-center gap-1.5 animate-bounce";
+          title.textContent = `${data.poke.name}(이)가 최고 등급 [챔피언]으로 각성했습니다!`;
+          desc.textContent = `눈부신 무지개 오라와 황금 왕관을 획득했습니다! 학급 최고의 챔피언입니다! 👑`;
+          crownIcon.classList.remove('hidden');
+          afterBox.className = "w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-slate-800/90 border-4 border-red-500 p-3 flex items-center justify-center champion-aura shadow-[0_0_45px_rgba(239,68,68,0.9)] relative";
+        } else if (data.newLevel === 4) {
+          badge.textContent = "🥇 황금 메가 각성 달성! 🥇";
+          badge.className = "px-4 py-1.5 rounded-full bg-amber-400 text-slate-950 font-jua text-sm sm:text-base font-bold shadow-lg mb-3 flex items-center gap-1.5 animate-bounce";
+          title.textContent = `${data.poke.name}이(가) [황금 메가 각성]을 달성했습니다!`;
+          desc.textContent = `황금빛 오라가 포켓몬을 감싸며 더욱 찬란해졌습니다! 🌟`;
+          crownIcon.classList.add('hidden');
+          afterBox.className = "w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-slate-800/90 border-4 border-amber-400 p-3 flex items-center justify-center gold-aura shadow-[0_0_35px_rgba(251,191,36,0.9)] relative";
+        } else {
+          badge.textContent = "⚡ 레벨업 & 능력치 상승! ⚡";
+          badge.className = "px-4 py-1.5 rounded-full bg-emerald-400 text-slate-950 font-jua text-sm sm:text-base font-bold shadow-lg mb-3 flex items-center gap-1.5 animate-bounce";
+          title.textContent = `${data.poke.name}의 레벨이 상승했습니다!`;
+          desc.textContent = `훈련을 통해 친밀도와 레벨이 올랐습니다! 멋진 활약을 기대하세요! 🔥`;
+          crownIcon.classList.add('hidden');
+          afterBox.className = "w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-slate-800/90 border-2 border-slate-500 p-3 flex items-center justify-center shadow-md relative";
+        }
+      }
+
+      modal.classList.remove('hidden');
+      soundManager.playFanfare(true);
+      confetti({
+        particleCount: 110,
+        spread: 80,
+        origin: { y: 0.5 }
+      });
+    }
+
+    function closeEvolutionModal() {
+      const modal = document.getElementById('evolutionCutsceneModal');
+      if (modal) modal.classList.add('hidden');
     }
 
     /* ==================== POKEDEX MODAL ==================== */
@@ -2470,6 +2862,7 @@ html_template = """<!DOCTYPE html>
       closeRouletteModal();
       
       const bonus = appState.presentHappyBonus || 15;
+      winner.todayCount = (winner.todayCount || 0) + 1;
       winner.count = (winner.count || 0) + 1;
       winner.pendingBalls = (winner.pendingBalls || 0) + 1;
       winner.happy = (winner.happy || 0) + bonus;
@@ -2485,6 +2878,7 @@ html_template = """<!DOCTYPE html>
       if (!rouletteWinner) return;
       const winner = rouletteWinner;
       const bonus = appState.presentHappyBonus || 15;
+      winner.todayCount = (winner.todayCount || 0) + 1;
       winner.count = (winner.count || 0) + 1;
       winner.pendingBalls = (winner.pendingBalls || 0) + 1;
       winner.happy = (winner.happy || 0) + bonus;
@@ -2724,16 +3118,17 @@ html_template = """<!DOCTYPE html>
     }
 
     function resetPresentationCountsOnly() {
-      if (confirm('모든 학생의 발표 횟수를 0으로 리셋하시겠습니까?\\n(보유한 포켓몬 도감과 해피포인트는 유지됩니다)')) {
+      if (confirm('모든 학생의 발표 횟수를 0으로 리셋하시겠습니까?\\n(오늘 발표 횟수와 누적 발표 횟수가 0으로 초기화됩니다)')) {
         appState.students.forEach(s => {
           s.count = 0;
+          s.todayCount = 0;
           s.todayLog = null;
         });
         saveState();
         renderStudentGrid();
         renderManageStudentList();
         closeResetModal();
-        showToast('✨ 모든 발표 횟수가 0으로 리셋되었습니다.');
+        showToast('✨ 모든 학생의 발표 횟수가 0으로 리셋되었습니다.');
       }
     }
 
@@ -2759,6 +3154,7 @@ html_template = """<!DOCTYPE html>
       }
       appState.students.forEach(s => {
         s.count = 0;
+        s.todayCount = 0;
         s.happy = 0;
         s.pendingBalls = 0;
         s.representativePokeId = null;
